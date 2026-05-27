@@ -1,3 +1,11 @@
-export default function App(){
-  return <h1>ゲーム検索アプリ🎮</h1>;
-}
+import './index.css';
+
+export default function App() {
+  const gameTitle = 'おすすめのゲーム検索🎮';
+
+  return(
+    <div className="card">
+    <h1>🎮 {gameTitle}アプリ</h1>
+    </div>
+  );
+  }

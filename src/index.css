@@ -1,0 +1,17 @@
+body{
+  background-color: rgb(0, 0, 0);
+  margin: 10px;
+  padding: 40px;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.card{
+  background-color: rgb(255, 255, 255);
+  color: black;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  text-align: center;
+  width: 400px;
+}
