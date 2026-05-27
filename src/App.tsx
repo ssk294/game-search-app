@@ -18,7 +18,7 @@ export default function App() {
       placeholder="ゲーム名を入力"
       value={searchTerm}
       onChange={(e) => setSerchTerm(e.target.value)}
-      />
+      className="search-text-card" />
     <button onClick={handleSearch} className="search-button">
       検索する
     </button>
