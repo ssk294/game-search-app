@@ -1,4 +1,5 @@
 import './index.css';
+import './App.css';
 
 export default function App() {
   return (
@@ -20,7 +21,7 @@ export default function App() {
         </nav>
 
         <div className="Serch-Box">
-          <input placeholder="ストアを検索" />
+          <input placeholder ="ゲームを検索" className="Serch-Box-design" />
         </div>
 
       </div>
