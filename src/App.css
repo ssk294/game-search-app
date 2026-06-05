@@ -1,0 +1,31 @@
+/*最初のナビエリア*/
+.nav-container{
+    display: flex;
+    align-items: center;
+    background-color: rgb(14, 37, 65);
+    padding: 8px 30px;
+    border-radius: 10px;
+  }
+  
+  .nav-list{
+    display: flex;
+    font-size: 15px;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .Serch-Box{
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+  }
+
+  .Serch-Box-design{
+    background-color: rgb(50, 64, 95);
+    border: none;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    padding: 5px;
+    margin: 0;
+  }
