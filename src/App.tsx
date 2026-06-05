@@ -1,17 +1,22 @@
 import './index.css';
 
-import { useState } from 'react';
 export default function App() {
-  const gameTitle = 'aaaaaaa🎮';
-  const [searchTerm, setSerchTerm] = useState('');
+  return (
+    <div>
 
-  const handleSearch = () =>{
-    alert('検索ワード: ' + searchTerm);
-  };
-
-  return(
-    <div className="card">
-  
+      <header>
+        GameStation
+      </header>
+      
+      <nav>
+        <ul>
+          <li>おすすめ</li>
+          <li>カテゴリー</li>
+          <li>ハードウェア</li>
+          <li>プレイ手段</li>
+        </ul>
+      </nav>
+      
     </div>
   );
-  }
+}
