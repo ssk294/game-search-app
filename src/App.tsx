@@ -8,15 +8,23 @@ export default function App() {
         GameStation
       </header>
       
-      <nav>
-        <ul>
-          <li>おすすめ</li>
-          <li>カテゴリー</li>
-          <li>ハードウェア</li>
-          <li>プレイ手段</li>
-        </ul>
-      </nav>
-      
+      {/*最初のナビエリア*/}
+      <div className="nav-container">
+        <nav>
+          <ul className="nav-list">
+            <li>おすすめ</li>
+            <li>カテゴリー</li>
+            <li>ハードウェア</li>
+            <li>プレイ手段</li>
+          </ul>
+        </nav>
+
+        <div className="Serch-Box">
+          <input placeholder="ストアを検索" />
+        </div>
+
+      </div>
+
     </div>
   );
 }
