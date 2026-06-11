@@ -1,5 +1,6 @@
 import './index.css';
 import './App.css';
+import FeaturedSection from './components/FeaturedSection';
 
 export default function App() {
   return (
@@ -25,6 +26,8 @@ export default function App() {
         </div>
 
       </div>
+
+          <FeaturedSection />
 
     </div>
   );
