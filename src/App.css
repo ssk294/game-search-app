@@ -38,11 +38,17 @@
   }
 
   .feature-right{
-    background-color: black;
+    background-color: rgb(44, 39, 53);
+    height: 550px;
     padding: 15px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 5px;
+  }
+
+  .game-title{
+    text-align: center;
   }
 
   .sub-image-container{
@@ -56,11 +62,12 @@
   }
   
   .main-image{
-    width: 600px;
-    height: auto;
+    width: auto;
+    height: 550px;
+    object-fit: cover;
   }
 
   .sub-image{
-    width: 120px;
+    width: 150px;
     height: auto;
   }
