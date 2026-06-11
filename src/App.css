@@ -57,7 +57,7 @@
     flex-wrap: wrap;
     list-style: none;
     padding: 0;
-    gap: 10px;
+    gap: 8px;
     width: calc(300px + 10px);
   }
   
@@ -70,4 +70,35 @@
   .sub-image{
     width: 150px;
     height: auto;
+  }
+
+  .game-genre{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .review-rating{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .price-display{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .discount-rate{
+    background-color: rgb(95, 95, 95);
+    color: rgba(251, 255, 0, 0.877);
+  }
+
+  .original-price{
+    color: rgb(100, 100, 100);
+  }
+
+  .sale-price{
+    color: rgba(251, 255, 0, 0.877);
   }
