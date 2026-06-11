@@ -31,3 +31,36 @@
     padding: 5px;
     margin: 0;
   }
+  
+  .feature-card{
+    display: flex;
+    justify-content: center;
+  }
+
+  .feature-right{
+    background-color: black;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .sub-image-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    gap: 10px;
+    width: calc(300px + 10px);
+  }
+  
+  .main-image{
+    width: 600px;
+    height: auto;
+  }
+
+  .sub-image{
+    width: 120px;
+    height: auto;
+  }
