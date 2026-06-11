@@ -1,3 +1,8 @@
+.header-title{
+  padding: 10px;
+  font-size: 35px;
+}
+
 /*最初のナビエリア*/
 .nav-container{
     display: flex;
@@ -12,7 +17,7 @@
   .nav-list{
     display: flex;
     font-size: 15px;
-    gap: 15px;
+    gap: 25px;
     list-style: none;
     padding: 0;
   }
@@ -24,11 +29,11 @@
   }
 
   .Serch-Box-design{
-    background-color: rgb(50, 64, 95);
+    background-color: rgb(39, 50, 73);
     border: none;
     border-radius: 10px;
     color: rgb(255, 255, 255);
-    padding: 5px;
+    padding: 8px;
     margin: 0;
   }
   
