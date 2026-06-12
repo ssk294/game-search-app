@@ -30,7 +30,7 @@ export default function FeaturedSection(){
                             レビュー:<span className ="rating-status">好評</span>
                         </div>
 
-                        <div className ="price-display">
+                        <div className ="price-display"> 
                             <span className ="discount-rate">-50%</span>
                             <span className ="original-price">￥7600</span>
                             <span className ="sale-price">￥3800</span>
