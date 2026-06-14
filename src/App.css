@@ -82,12 +82,16 @@
   }
 
   .Welcome-text{
-    font-size: 1.2rem;
+    font-size:25px;
+    font-family: 'BIZ+UDGothic',sans-serif;
     line-height: 1.8;
-    max-width: 560px;
+    max-width: 730px;
   }
 
   .start-btn{
+    font-family: 'BIZ+UDGothic',sans-serif;
+    font-weight: bold;
+    font-size: 16px;
     border: 4px solid transparent;
     background:/*クリッピングして形を切り抜くこともできるみたい。初めて知ったためメモ*/
       linear-gradient(#ffffff, #ffffff), 
