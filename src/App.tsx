@@ -1,15 +1,26 @@
+import { useState } from 'react';
 import './index.css';
 import './App.css';
-import FeaturedSection from './components/FeaturedSection';
 import WelcomeView from './components/WelcomeView';
 
 export default function App() {
+
+  const [screenStage, setScreenStage] = useState(0);
+  const nextStage = () =>{
+    setScreenStage(screenStage + 1);
+  };
+
   return (
     <div>
-      <WelcomeView/>
+      {screenStage === 0&&(
+        <WelcomeView onStart={nextStage} />
+      )}
 
-      <FeaturedSection />
-
+      {screenStage === 1 && (
+        <div style={{ textAlign: 'center', marginTop: '100px', fontFamily: 'BIZ UDGothic' }}>
+          <h2>test</h2>
+        </div>
+      )}
     </div>
   );
 }
