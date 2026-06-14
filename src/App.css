@@ -1,42 +1,4 @@
-.header-title{
-  padding: 10px;
-  font-size: 35px;
-}
-
-/*最初のナビエリア*/
-.nav-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(14, 37, 65);
-    height: 50px;
-    border-radius: 10px;
-    box-sizing: border-box;
-  }
-  
-  .nav-list{
-    display: flex;
-    font-size: 15px;
-    gap: 25px;
-    list-style: none;
-    padding: 0;
-  }
-  
-  .Serch-Box{
-    display: flex;
-    align-items: center;
-    margin-left: 15px;
-  }
-
-  .Serch-Box-design{
-    background-color: rgb(39, 50, 73);
-    border: none;
-    border-radius: 10px;
-    color: rgb(255, 255, 255);
-    padding: 8px;
-    margin: 0;
-  }
-  
+/*FeatureSectionエリア*/
   .feature-card{
     display: flex;
     justify-content: center;
@@ -107,3 +69,5 @@
   .sale-price{
     color: rgba(251, 255, 0, 0.877);
   }
+
+  /*WelcomeViewエリア*/
