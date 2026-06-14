@@ -1,6 +1,8 @@
 import '../App.css';
-
-export default function WelcomeView(){
+interface WelcomeViewProps{
+    onStart: () =>void;
+}
+export default function WelcomeView({ onStart }: WelcomeViewProps){
     return(
         <div>
             <div className = "Welcome-container">
@@ -8,7 +10,7 @@ export default function WelcomeView(){
                 何万件もの作品から、今のあなたに最高の作品を導き出します。まずは診断してみましょう！
                 </p>
 
-            <button className = 'start-btn'>
+            <button className = 'start-btn' onClick={onStart}>
             START
             </button>
 
