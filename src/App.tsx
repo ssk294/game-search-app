@@ -17,10 +17,9 @@ export default function App() {
       )}
 
       {screenStage === 1 && (
-        <div style={{ textAlign: 'center', marginTop: '100px', fontFamily: 'BIZ UDGothic' }}>
-          <h2>test</h2>
-        </div>
+        <QuestionView onStart={nextStage}/>
       )}
+      
     </div>
   );
 }
