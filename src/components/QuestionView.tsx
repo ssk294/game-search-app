@@ -1,8 +1,11 @@
 import '../App.css';
 interface QuestionViewProps{
     onStart: () =>void;
+    title: string;
+    ansA: string;
+    ansB: string;
 }
-export default function QuestionView({ onStart} :QuestionViewProps){
+export default function QuestionView({ onStart  ,title, ansA ,ansB } :QuestionViewProps){
 
     const handleAnswerClick = () =>{
         onStart();
@@ -14,11 +17,11 @@ export default function QuestionView({ onStart} :QuestionViewProps){
                 <div className ="Progress-bar-fill">test</div>
             </div>
 
-            <h1 className= "Question-text">今の気分は？</h1>
+            <h1 className= "Question-text">{title}</h1>
 
             <div className ="Question-container">
-                <button className ="Question-btn" onClick ={handleAnswerClick} >手軽にプレイしたい</button>
-                <button className ="Question-btn" onClick ={handleAnswerClick} >じっくりプレイしたい</button>
+                <button className ="Question-btn" onClick ={handleAnswerClick} >{AnsA}</button>
+                <button className ="Question-btn" onClick ={handleAnswerClick} >{AnsB}</button>
             </div>
         </div>
     );
