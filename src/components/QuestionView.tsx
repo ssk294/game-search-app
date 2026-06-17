@@ -5,7 +5,7 @@ interface QuestionViewProps{
 export default function QuestionView({ onStart} :QuestionViewProps){
 
     const handleAnswerClick = () =>{
-        alert("test");
+        onStart();
     };
 
     return(
