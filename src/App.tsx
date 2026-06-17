@@ -21,6 +21,10 @@ export default function App() {
         <QuestionView onStart={nextStage}/>
       )}
 
+      {screenStage === 2&& (
+        <QuestionView onStart={nextStage}/>
+      )}
+
     </div>
   );
 }
