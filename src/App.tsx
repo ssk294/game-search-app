@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './index.css';
 import './App.css';
 import WelcomeView from './components/WelcomeView';
+import QuestionView from './components/QuestionView';
 
 export default function App() {
 
@@ -19,7 +20,7 @@ export default function App() {
       {screenStage === 1 && (
         <QuestionView onStart={nextStage}/>
       )}
-      
+
     </div>
   );
 }
