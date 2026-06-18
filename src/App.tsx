@@ -3,7 +3,7 @@ import './index.css';
 import './App.css';
 import WelcomeView from './components/WelcomeView';
 import QuestionView from './components/QuestionView';
-import {QUESTION_DATA} from "./Questions";
+import {QUESTION_DATA} from "./DataFolder/Questions";
 import ThreeQuestionView from "./components/ThreeQuestionView";
 
 export default function App() {
