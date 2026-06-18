@@ -1,0 +1,15 @@
+export const GenreData = [
+    {id: 'rpg',name: 'RPG',icon: '⚔️', desc: '王道の冒険やストーリーを楽しみたい人に！' },
+    {id: 'fps',name: 'FPS',icon:"🔫",desc:'緊張感のある銃撃戦を楽しみたい人に！'},
+    {id: 'act',name: 'アクション',icon:"💥",desc:'爽快な操作感やバトルを楽しみたい人に！'},
+    {id: 'pzl',name: 'パズル',icon:'🧩',desc:'じっくり頭を使って謎解きしたい人に！'},
+    {id: 'sim',name: 'シミュレーション',icon:'🏠',desc:'街づくりやお店の経営などを体験したい人に！'},
+    {id: 'fantazy',name: 'ファンタジー',icon:'🐉',desc:'幻想的な世界観が好きな人に！'},
+    {id: 'horror',name: 'ホラー',icon:'👻',desc:'ハラハラする恐怖と緊迫感を体験したい人に！'},
+    {id: 'rglk',name: 'ローグライク',icon:'☠️',desc:'形が変わるダンジョンに何度も挑戦したい人に！'},
+    {id: 'rglt',name: 'ローグライト',icon:'💪',desc:'倒されても少しずつ強くなって進みたい人に！'},
+    {id: 'rcg',name: 'レース',icon:'🚗',desc:'自慢のマシンで最速を競うスピード感を味わいたい人に！'},
+    {id: '',name: '',icon:'',desc:''},
+    {id: '',name: '',icon:'',desc:''},
+    {id: '',name: '',icon:'',desc:''},
+];
