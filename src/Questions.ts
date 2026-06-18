@@ -1,17 +1,17 @@
 export const QUESTION_DATA = [
     {
       title: "今の気分は？",
-      ansA: "手軽にプレイしたい",
-      ansB: "じっくりプレイしたい"
+      ansA: "手軽にプレイしたい！",
+      ansB: "じっくりプレイしたい！"
     },
     {
-      title: "ゲームの見た目は？",
-      ansA: "2D",
-      ansB: "3D"
+      title: "どのように楽しみたい？",
+      ansA: "１人でじっくり！",
+      ansB: "友達や誰かとワイワイ！"
     },
     {
-      title: "test",
-      ansA: "test",
-      ansB: "test"
+      title: "ゲームにかける予算は？",
+      ansA: "基本無料で気軽に始めたい！",
+      ansB: "作品を買い切って楽しみたい！"
     }
   ];
