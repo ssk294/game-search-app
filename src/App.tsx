@@ -4,6 +4,7 @@ import './App.css';
 import WelcomeView from './components/WelcomeView';
 import QuestionView from './components/QuestionView';
 import {QUESTION_DATA} from "./Questions";
+import ThreeQuestionView from "./components/ThreeQuestionView";
 
 export default function App() {
 
@@ -18,7 +19,7 @@ export default function App() {
         <WelcomeView onStart={nextStage} />
       )}
 
-      {screenStage === 1 && (
+      {screenStage === 1&& (
         <QuestionView 
           onStart={nextStage}
           title={QUESTION_DATA[0].title}
@@ -36,7 +37,6 @@ export default function App() {
         />
       )}
 
-        
       {screenStage === 3&& (
         <QuestionView 
           onStart={nextStage}
@@ -46,6 +46,20 @@ export default function App() {
         />
       )}
 
+      {screenStage === 4&& (
+          <QuestionView 
+            onStart={nextStage}
+            title={QUESTION_DATA[3].title}
+            ansA={QUESTION_DATA[3].ansA}
+            ansB={QUESTION_DATA[3].ansB}
+              />
+      )}
+
+      {screenStage === 5&& (
+          <ThreeQuestionView
+            onStart={nextStage}
+          />
+      )}
 
     </div>
   );
