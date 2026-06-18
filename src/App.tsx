@@ -36,6 +36,17 @@ export default function App() {
         />
       )}
 
+        
+      {screenStage === 3&& (
+        <QuestionView 
+          onStart={nextStage}
+          title={QUESTION_DATA[2].title}
+          ansA={QUESTION_DATA[2].ansA}
+          ansB={QUESTION_DATA[2].ansB}
+        />
+      )}
+
+
     </div>
   );
 }
