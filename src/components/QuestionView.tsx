@@ -20,8 +20,8 @@ export default function QuestionView({ onStart  ,title, ansA ,ansB } :QuestionVi
             <h1 className= "Question-text">{title}</h1>
 
             <div className ="Question-container">
-                <button className ="Question-btn" onClick ={handleAnswerClick} >{AnsA}</button>
-                <button className ="Question-btn" onClick ={handleAnswerClick} >{AnsB}</button>
+                <button className ="Question-btn" onClick ={handleAnswerClick} >{ansA}</button>
+                <button className ="Question-btn" onClick ={handleAnswerClick} >{ansB}</button>
             </div>
         </div>
     );
