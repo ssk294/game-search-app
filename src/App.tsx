@@ -5,6 +5,7 @@ import WelcomeView from './components/WelcomeView';
 import QuestionView from './components/QuestionView';
 import {QUESTION_DATA} from "./DataFolder/Questions";
 import ThreeQuestionView from "./components/ThreeQuestionView";
+import GenreSelection from "./components/GenreSelection";
 
 export default function App() {
 
@@ -47,20 +48,25 @@ export default function App() {
       )}
 
       {screenStage === 4&& (
-          <QuestionView 
-            onStart={nextStage}
-            title={QUESTION_DATA[3].title}
-            ansA={QUESTION_DATA[3].ansA}
-            ansB={QUESTION_DATA[3].ansB}
+        <QuestionView 
+          onStart={nextStage}
+          title={QUESTION_DATA[3].title}
+          ansA={QUESTION_DATA[3].ansA}
+          ansB={QUESTION_DATA[3].ansB}
               />
       )}
 
       {screenStage === 5&& (
-          <ThreeQuestionView
-            onStart={nextStage}
+        <ThreeQuestionView
+          onStart={nextStage}
           />
       )}
 
+      {screenStage ===6&&(
+        <GenreSelection
+          onStart={nextStage}
+          />  
+      )}
     </div>
   );
 }
