@@ -7,10 +7,10 @@ interface GenreSelectionProps{
 
 export default function GenreSelection({ onStart } :GenreSelectionProps){
 
-    const [setselectedGenres, setSelectedGenres] =useState<string[]>([]);
+    const [selectedGenres, setSelectedGenres] =useState<string[]>([]);
 
     const handleCardClick = (genreId: string) => {
-        if (SelectedGenres.includes(genreId)){
+        if (selectedGenres.includes(genreId)){
             setSelectedGenres(selectedGenres.filter((id) => id !== genreId));
         }   else {
                 setSelectedGenres([...selectedGenres, genreId]);
