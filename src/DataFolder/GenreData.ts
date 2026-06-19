@@ -9,7 +9,6 @@ export const GenreData = [
     {id: 'rglk',name: 'ローグライク',icon:'☠️',desc:'形が変わるダンジョンに何度も挑戦したい人に！'},
     {id: 'rglt',name: 'ローグライト',icon:'💪',desc:'倒されても少しずつ強くなって進みたい人に！'},
     {id: 'rcg',name: 'レース',icon:'🚗',desc:'自慢のマシンで最速を競うスピード感を味わいたい人に！'},
-    {id: '',name: '',icon:'',desc:''},
-    {id: '',name: '',icon:'',desc:''},
-    {id: '',name: '',icon:'',desc:''},
+    {id: 'spts',name: 'スポーツ',icon:'⚽',desc:'スポーツをゲームで熱狂したい人に！'},
+    {id: 'others',name: 'なんでも',icon:'😊',desc:'test'},
 ];
