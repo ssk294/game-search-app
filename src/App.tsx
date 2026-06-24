@@ -6,6 +6,7 @@ import QuestionView from './components/QuestionView';
 import {QUESTION_DATA} from "./DataFolder/Questions";
 import ThreeQuestionView from "./components/ThreeQuestionView";
 import GenreSelection from "./components/GenreSelection";
+import ResultSection from "./components/ResultSection";
 
 export default function App() {
 
@@ -64,6 +65,12 @@ export default function App() {
 
       {screenStage ===6&&(
         <GenreSelection
+          onStart={nextStage}
+          />  
+      )}
+
+      {screenStage ===7&&(
+        <ResultSection
           onStart={nextStage}
           />  
       )}
