@@ -2,7 +2,7 @@ import '../App.css';
 import { useState } from 'react';
 import {GenreData} from '../DataFolder/GenreData';
 interface GenreSelectionProps{
-    onStart: () =>void;
+    onStart: (selected: string[]) =>void;
 }
 
 export default function GenreSelection({ onStart } :GenreSelectionProps){
@@ -52,7 +52,7 @@ export default function GenreSelection({ onStart } :GenreSelectionProps){
                     </button>
         );
     })}
-             <button className = 'start-btn' onClick={onStart}>
+             <button className = 'start-btn' onClick={() => onStart(selectedGenres)}>
             診断結果へ！
             </button> 
                 </div>

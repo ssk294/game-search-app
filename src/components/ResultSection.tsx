@@ -7,10 +7,6 @@ interface ResultSectionProps{
 }
 export default function ResultSection({ onStart ,title ,image ,desc } :ResultSectionProps){
 
-    const handleAnswerClick = () =>{
-        onStart();
-    };
-
     return(
     <div className ="Result-container">
         <h2>今のあなたに合うゲームはこちら！</h2>

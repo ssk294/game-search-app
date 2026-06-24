@@ -10,9 +10,28 @@ import ResultSection from "./components/ResultSection";
 
 export default function App() {
 
+  const [answers, setAnswers] = useState<string[]>([]);
+  const [hardware, setHardware] = useState<string>('');
+  const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
+
   const [screenStage, setScreenStage] = useState(0);
   const nextStage = () =>{
     setScreenStage(screenStage + 1);
+  };
+
+  const handleQuestionAnswer = (answer: string) =>{
+    setAnswers([...answers,answer]);
+    nextStage();
+  };
+
+  const handleHardwareSelect = (selectedHardware: string) => {
+    setHardware(selectedHardware);
+    nextStage();
+  };
+
+  const handleGenreSelect = (genres: string[]) =>{
+    setSelectedGenres(genres);
+    nextStage();
   };
 
   return (
@@ -23,7 +42,7 @@ export default function App() {
 
       {screenStage === 1&& (
         <QuestionView 
-          onStart={nextStage}
+          onStart={handleQuestionAnswer}
           title={QUESTION_DATA[0].title}
           ansA={QUESTION_DATA[0].ansA}
           ansB={QUESTION_DATA[0].ansB}
@@ -32,7 +51,7 @@ export default function App() {
 
       {screenStage === 2&& (
         <QuestionView 
-          onStart={nextStage}
+          onStart={handleQuestionAnswer}
           title={QUESTION_DATA[1].title}
           ansA={QUESTION_DATA[1].ansA}
           ansB={QUESTION_DATA[1].ansB}
@@ -41,7 +60,7 @@ export default function App() {
 
       {screenStage === 3&& (
         <QuestionView 
-          onStart={nextStage}
+          onStart={handleQuestionAnswer}
           title={QUESTION_DATA[2].title}
           ansA={QUESTION_DATA[2].ansA}
           ansB={QUESTION_DATA[2].ansB}
@@ -50,7 +69,7 @@ export default function App() {
 
       {screenStage === 4&& (
         <QuestionView 
-          onStart={nextStage}
+          onStart={handleQuestionAnswer}
           title={QUESTION_DATA[3].title}
           ansA={QUESTION_DATA[3].ansA}
           ansB={QUESTION_DATA[3].ansB}
@@ -59,19 +78,22 @@ export default function App() {
 
       {screenStage === 5&& (
         <ThreeQuestionView
-          onStart={nextStage}
+          onStart={handleHardwareSelect}
           />
       )}
 
       {screenStage ===6&&(
         <GenreSelection
-          onStart={nextStage}
+          onStart={handleGenreSelect}
           />  
       )}
 
       {screenStage ===7&&(
         <ResultSection
-          onStart={nextStage}
+          onStart={() => setScreenStage(0)}
+          title="test"
+          image="test"
+          desc="test"
           />  
       )}
     </div>
