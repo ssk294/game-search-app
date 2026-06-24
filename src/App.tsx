@@ -14,6 +14,12 @@ export default function App() {
   const [hardware, setHardware] = useState<string>('');
   const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
 
+  const [resultGame, setResultGame] = useState({
+    title: '',
+    image: '',
+    desc: ''
+  });
+
   const [screenStage, setScreenStage] = useState(0);
   const nextStage = () =>{
     setScreenStage(screenStage + 1);
@@ -29,9 +35,41 @@ export default function App() {
     nextStage();
   };
 
-  const handleGenreSelect = (genres: string[]) =>{
+  const handleGenreSelect = async (genres: string[]) => {
     setSelectedGenres(genres);
+
+    try {
+      /*
+      const apiUrl = `https://api.example.com/games?hard=${hardware}&genre=${genres[0]}`;
+      const response = await fetch(apiUrl);
+      const apiData = await response.json();
+
+      setResultGame({
+        title: apiData.title,
+        image: apiData.image,
+        desc: apiData.description
+      });
+      */
+
+      setResultGame({
+        title: "API接続待ち...",
+        image: "https://placehold.jp/150x150.png",
+        desc: "test"
+      });
+
+    } catch (error) {
+      console.error("APIの取得に失敗しました", error);
+    }
+
     nextStage();
+  };
+
+  const resetApp = () => {
+    setScreenStage(0);
+    setAnswers([]);
+    setHardware('');
+    setSelectedGenres([]);
+    setResultGame({ title: '', image: '', desc: '' });
   };
 
   return (
@@ -90,10 +128,10 @@ export default function App() {
 
       {screenStage ===7&&(
         <ResultSection
-          onStart={() => setScreenStage(0)}
-          title="test"
-          image="test"
-          desc="test"
+          onStart={resetApp}
+          title={resultGame.title}
+          image={resultGame.image}
+          desc={resultGame.desc}
           />  
       )}
     </div>
