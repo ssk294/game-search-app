@@ -233,3 +233,11 @@
   border-radius: 10px;
   border: 4px solid rgb(48, 48, 48);
  }
+
+/*ResultSection*/
+.Result-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
