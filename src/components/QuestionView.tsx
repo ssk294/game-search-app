@@ -9,9 +9,6 @@ export default function QuestionView({ onStart  ,title, ansA ,ansB } :QuestionVi
 
     return(
         <div className ="Question-Section">
-            <div className ="Progress-bar">
-                <div className ="Progress-bar-fill">test</div>
-            </div>
 
             <h1 className= "Question-text">{title}</h1>
 

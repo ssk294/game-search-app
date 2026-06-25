@@ -7,9 +7,6 @@ export default function ThreeQuestionView({ onStart } :ThreeQuestionViewProps){
 
     return(
         <div className ="Question-Section">
-            <div className ="Progress-bar">
-                <div className ="Progress-bar-fill">test</div>
-            </div>
 
             <h1 className= "Question-text">プレイするハードは？</h1>
 

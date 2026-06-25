@@ -20,9 +20,6 @@ export default function GenreSelection({ onStart } :GenreSelectionProps){
     return(
         <div>
            <div className ="Question-Section">
-                <div className ="Progress-bar-genre">
-                    <div className ="Progress-bar-fill">test</div>
-                </div>
 
                 <h1 className= "Question-text">探してるジャンルは？（複数選択可）</h1>
 
