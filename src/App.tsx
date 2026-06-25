@@ -74,6 +74,14 @@ export default function App() {
 
   return (
     <div>
+
+    {screenStage >= 1 && screenStage <= 6 && (
+      <div className ="progress-bar-container">
+          <div className ="progress-bar-fill" style={{ width:`${(screenStage / 6) * 100}%`}}
+          />
+      </div>
+    )}
+
       {screenStage === 0&&(
         <WelcomeView onStart={nextStage} />
       )}
