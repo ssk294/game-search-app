@@ -77,8 +77,7 @@ export default function App() {
 
     {screenStage >= 1 && screenStage <= 6 && (
       <div className ="progress-bar-container">
-          <div className ="progress-bar-fill" style={{ width:`${(screenStage / 6) * 100}%`}}
-          />
+          <div className ="progress-bar-fill" style={{ width:`${(screenStage - 1 )/ 6 * 100}%`}}/>
       </div>
     )}
 
