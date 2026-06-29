@@ -54,10 +54,18 @@ export default function App() {
       return;
     }
 
+    const answersString = answers.join(','); 
+    const genreString = genres.join(',');
 
     try {
-      /*
-      const apiUrl = `https://api.example.com/games?hard=${hardware}&genre=${genres[0]}`;
+
+        setResultGame({
+        title: "API接続待ち...",
+        image: "https://placehold.jp/150x150.png",
+        desc: "test"
+      });
+      
+      const apiUrl = `https://api.example.com/games?hard=${hardware}&genre=${genreString}&ans=${answersString}`;
       const response = await fetch(apiUrl);
       const apiData = await response.json();
 
@@ -66,18 +74,19 @@ export default function App() {
         image: apiData.image,
         desc: apiData.description
       });
-      */
 
       nextStage();
 
-      setResultGame({
-        title: "API接続待ち...",
-        image: "https://placehold.jp/150x150.png",
-        desc: "test"
-      });
-
     } catch (error) {
       console.error("APIの取得に失敗しました", error);
+          setResultGame({
+        title: "エラーが発生しました",
+        image: "☠️",
+        desc: "データの取得に失敗しました。電波のいい環境でもう一度お試しください"
+      });
+      
+      nextStage();
+      
     }
 
   };
@@ -95,7 +104,7 @@ export default function App() {
 
     {screenStage >= 1 && screenStage <= 6 && (
       <div className ="progress-bar-container">
-          <div className ="progress-bar-fill" style={{ width:`${(screenStage - 1 )/ 6 * 100}%`}}/>
+          <div className ="progress-bar-fill" style={{ width:`${(screenStage - 1 )/ 5 * 100}%`}}/>
       </div>
     )}
 
