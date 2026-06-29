@@ -38,6 +38,23 @@ export default function App() {
   const handleGenreSelect = async (genres: string[]) => {
     setSelectedGenres(genres);
 
+    if(answers.length !==4){
+      alert("未回答の質問があります")
+      return;
+    }
+
+    if(genres.length === 0){
+      alert("ジャンルを選択してください")
+      return;
+    }
+
+
+    if(hardware === ''){
+      alert("ハードウェアを回答してください");
+      return;
+    }
+
+
     try {
       /*
       const apiUrl = `https://api.example.com/games?hard=${hardware}&genre=${genres[0]}`;
@@ -51,6 +68,8 @@ export default function App() {
       });
       */
 
+      nextStage();
+
       setResultGame({
         title: "API接続待ち...",
         image: "https://placehold.jp/150x150.png",
@@ -61,7 +80,6 @@ export default function App() {
       console.error("APIの取得に失敗しました", error);
     }
 
-    nextStage();
   };
 
   const resetApp = () => {
