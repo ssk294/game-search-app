@@ -25,6 +25,23 @@ export default function App() {
     setScreenStage(screenStage + 1);
   };
 
+  const prevStage = () =>{
+    if (screenStage === 6 ){
+      setSelectedGenres([]);
+    }
+
+    if (screenStage === 5 ){
+      setHardware('');
+      setAnswers((prev) => prev.slice(0,-1));
+    }
+
+    if(screenStage >= 2 && screenStage<= 4 ){
+      setAnswers((prev) => prev.slice(0,-1));
+    }
+
+    setScreenStage(screenStage - 1 );
+  }
+
   const handleQuestionAnswer = (answer: string) =>{
     setAnswers([...answers,answer]);
     nextStage();
@@ -128,6 +145,7 @@ export default function App() {
       {screenStage === 1&& (
         <QuestionView 
           onStart={handleQuestionAnswer}
+          onBack={prevStage}
           title={QUESTION_DATA[0].title}
           ansA={QUESTION_DATA[0].ansA}
           ansB={QUESTION_DATA[0].ansB}
@@ -137,6 +155,7 @@ export default function App() {
       {screenStage === 2&& (
         <QuestionView 
           onStart={handleQuestionAnswer}
+          onBack={prevStage}
           title={QUESTION_DATA[1].title}
           ansA={QUESTION_DATA[1].ansA}
           ansB={QUESTION_DATA[1].ansB}
@@ -146,6 +165,7 @@ export default function App() {
       {screenStage === 3&& (
         <QuestionView 
           onStart={handleQuestionAnswer}
+          onBack={prevStage}
           title={QUESTION_DATA[2].title}
           ansA={QUESTION_DATA[2].ansA}
           ansB={QUESTION_DATA[2].ansB}
@@ -155,6 +175,7 @@ export default function App() {
       {screenStage === 4&& (
         <QuestionView 
           onStart={handleQuestionAnswer}
+          onBack={prevStage}
           title={QUESTION_DATA[3].title}
           ansA={QUESTION_DATA[3].ansA}
           ansB={QUESTION_DATA[3].ansB}
@@ -164,12 +185,14 @@ export default function App() {
       {screenStage === 5&& (
         <ThreeQuestionView
           onStart={handleHardwareSelect}
+          onBack={prevStage}
           />
       )}
 
       {screenStage ===6&&(
         <GenreSelection
           onStart={handleGenreSelect}
+          onBack={prevStage}
           />  
       )}
 
