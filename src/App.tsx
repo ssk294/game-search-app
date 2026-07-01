@@ -57,6 +57,8 @@ export default function App() {
     const answersString = answers.join(','); 
     const genreString = genres.join(',');
 
+    const apikey = import.meta.env.VITE_API_KEY;
+
     try {
 
         setResultGame({
@@ -65,15 +67,26 @@ export default function App() {
         desc: "test"
       });
       
-      const apiUrl = `https://api.example.com/games?hard=${hardware}&genre=${genreString}&ans=${answersString}`;
+      const apiUrl = `https://api.rawg.io/api/games?key=${apikey}&genres=${genreString.toLowerCase()}&page_size=1`;
       const response = await fetch(apiUrl);
       const apiData = await response.json();
+      
+      if (apiData.results && apiData.results.length > 0){
+      
+      const game = apiData.results[0];
 
       setResultGame({
-        title: apiData.title,
-        image: apiData.image,
-        desc: apiData.description
+        title: game.name,
+        image: game.background_image,
+        desc: `評価: ${game.rating} / 発売日: ${game.released}`
       });
+    }else {
+      setResultGame({
+        title: "おすすめのゲームが見つかりませんでした。",
+        image: "❓",
+        desc : "条件にあうゲームが見つかりませんでした。"
+      })
+    }
 
       nextStage();
 
