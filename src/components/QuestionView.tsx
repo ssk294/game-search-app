@@ -4,6 +4,7 @@ interface QuestionViewProps{
     title: string;
     ansA: string;
     ansB: string;
+    onBack: () =>void;
 }
 export default function QuestionView({ onStart ,title, ansA ,ansB, onBack } :QuestionViewProps){
 

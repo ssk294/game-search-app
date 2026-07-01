@@ -116,7 +116,6 @@
   /*QuestionViewエリア*/
   .Question-Section{
     display: flex;
-    text-align: center;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -127,13 +126,15 @@
     text-align: center;
     font-family: 'BIZ+UDGothic',sans-serif;
     font-weight: bold;
-    margin: 150px;
+    margin: 150px 0;
   }
 
   .Question-container{
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 50px;
+    gap: 15px;
+    margin: 0 auto;
   }
 
   .Question-btn{

@@ -3,7 +3,7 @@ interface ThreeQuestionViewProps{
     onStart: (hardware: string) =>void;
 }
 
-export default function ThreeQuestionView({ onStart } :ThreeQuestionViewProps){
+export default function ThreeQuestionView({ onStart, onBack } :ThreeQuestionViewProps){
 
     return(
         <div className ="Question-Section">
@@ -15,6 +15,9 @@ export default function ThreeQuestionView({ onStart } :ThreeQuestionViewProps){
                 <button className ="Question-btn" onClick ={() => onStart('ゲーム機')} >ゲーム機</button>
                 <button className ="Question-btn" onClick ={() => onStart('PC')} >PC</button>
             </div>
+
+            <button  className="Back-btn" onClick={onBack}>前に戻る</button>
+
         </div>
     );
 }
