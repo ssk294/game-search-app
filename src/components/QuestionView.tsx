@@ -5,7 +5,7 @@ interface QuestionViewProps{
     ansA: string;
     ansB: string;
 }
-export default function QuestionView({ onStart  ,title, ansA ,ansB } :QuestionViewProps){
+export default function QuestionView({ onStart ,title, ansA ,ansB, onBack } :QuestionViewProps){
 
     return(
         <div className ="Question-Section">
@@ -13,14 +13,19 @@ export default function QuestionView({ onStart  ,title, ansA ,ansB } :QuestionVi
             <h1 className= "Question-text">{title}</h1>
 
             <div className ="Question-container">
-                <button className ="Question-btn" onClick ={() => onStart('A')} >
-                    {ansA}
-                </button>
 
-                <button className ="Question-btn" onClick ={() => onStart('B')} >
-                    {ansB}
-                </button>
+                    <button className ="Question-btn" onClick ={() => onStart('A')} >
+                        {ansA}
+                    </button>
+
+                    <button className ="Question-btn" onClick ={() => onStart('B')} >
+                        {ansB}
+                    </button>
+
             </div>
+
+            <button  className="Back-btn" onClick={onBack}>前に戻る</button>
+
         </div>
     );
 }
