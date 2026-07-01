@@ -132,6 +132,7 @@
 
   .Question-container{
     display: flex;
+    align-items: center;
     gap: 50px;
   }
 
@@ -152,7 +153,29 @@
     transition: ease 0.3s;
   }
 
+  .Back-btn{
+    font-family: 'BIZ+UDGothic',sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    border: 4px solid transparent;
+    background:
+      linear-gradient(#ffffff, #ffffff), 
+      linear-gradient(to right, #ff007f, #7f00ff, #00bfff, #00ffcc); 
+  
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    margin-top: 50px;
+    padding: 12px 28px;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: ease 0.3s;
+  }
+
   .Question-btn:hover{
+    transform: scale(1.15);
+  }
+
+  .Back-btn:hover{
     transform: scale(1.15);
   }
 
