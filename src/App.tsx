@@ -57,7 +57,7 @@ export default function App() {
     const answersString = answers.join(','); 
     const genreString = genres.join(',');
 
-    const apikey = import.meta.env.VITE_API_KEY;
+    const apikey = import.meta.env.VITE_RAWG_API_KEY;
 
     try {
 
