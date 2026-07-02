@@ -1,6 +1,7 @@
 import '../App.css';
 interface ThreeQuestionViewProps{
     onStart: (hardware: string) =>void;
+    onBack: () => void;
 }
 
 export default function ThreeQuestionView({ onStart, onBack } :ThreeQuestionViewProps){
