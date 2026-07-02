@@ -241,10 +241,10 @@
   .Cassette-card::before{
     content: "";
     position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
     background: linear-gradient(to right, #ff007f, #7f00ff, #00bfff, #00ffcc);
     border-radius: 18px;
     filter:blur(12px);
@@ -258,7 +258,7 @@
   }
 
   .Cassette-card.active::before{
-    opacity: 0.45;
+    opacity: 0.5;
   }
 
  .Cassette-card:hover .Cassette-desc{
