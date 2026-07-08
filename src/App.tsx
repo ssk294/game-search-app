@@ -84,9 +84,10 @@ export default function App() {
         desc: "test"
       });
       
-      const apiUrl = `https://thingproxy.freeboard.io/fetch/https://api.rawg.io/api/games?key=${apikey}&genres=${genreString.toLowerCase()}&page_size=1`;
+      const apiUrl = `https://rawg.io{apikey}&genres=${genreString.toLowerCase()}&page_size=1`;
       const response = await fetch(apiUrl);
       const apiData = await response.json();
+
       
       if (apiData.results && apiData.results.length > 0){
       
