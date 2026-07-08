@@ -1,5 +1,5 @@
 export const GenreData = [
-    {id: 'role-playing-game-rpg',name: 'RPG',icon: '⚔️', desc: '王道の冒険やストーリーを楽しみたい人に！' },
+    {id: 'role-playing',name: 'RPG',icon: '⚔️', desc: '王道の冒険やストーリーを楽しみたい人に！' },
     {id: 'Shooter',name: 'FPS',icon:"🔫",desc:'緊張感のある銃撃戦を楽しみたい人に！'},
     {id: 'action',name: 'アクション',icon:"💥",desc:'爽快な操作感やバトルを楽しみたい人に！'},
     {id: 'puzzle',name: 'パズル',icon:'🧩',desc:'じっくり頭を使って謎解きしたい人に！'},
