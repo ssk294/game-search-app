@@ -269,8 +269,21 @@
 .Result-container{
   display: flex;
   flex-direction: column;
+  text-align: center;
   align-items: center;
   gap: 15px;
+}
+
+.Result-card{
+  background-color: #b4b4b4;
+  border-radius: 15px;
+  max-width: 480px;
+  padding: 8px;
+}
+
+.Result-image{
+  width: 400px;
+  border-radius: 15px;
 }
 
 /*progress-barエリア*/
