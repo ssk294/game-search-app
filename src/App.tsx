@@ -14,11 +14,9 @@ export default function App() {
   const [hardware, setHardware] = useState<string>('');
   const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
 
-  const [resultGame, setResultGame] = useState({
-    title: '',
-    image: '',
-    desc: ''
-  });
+  const [resultGame, setResultGame] = useState<any[]>([
+    { title: '', image: '', desc: '' }
+  ]);
 
   const [screenStage, setScreenStage] = useState(0);
   const nextStage = () =>{
@@ -78,53 +76,53 @@ export default function App() {
 
     try {
 
+        setResultGame([]);
+
         setResultGame({
         title: "API接続待ち...",
         image: "https://placehold.jp/150x150.png",
         desc: "test"
       });
       
-      const apiUrl = `https://api.rawg.io/api/games?key=${apikey}&genres=${genreString.toLowerCase()}&page_size=1`;
+      const apiUrl = `https://api.rawg.io/api/games?key=${apikey}&genres=${genreString}&page_size=3`;
       console.log("実際に送っているURL:", apiUrl);
       const response = await fetch(apiUrl);
       const apiData = await response.json();
       console.log("APIから届いたデータ:", apiData);
 
       
-      if (apiData.results && apiData.results.length > 0){
-      
-      const game = apiData.results[0];
-
-      setResultGame({
-        title: game.name,
-        image: game.background_image,
-        desc: `評価: ${game.rating} / 発売日: ${game.released}`
-      });
-    }else {
-      setResultGame({
-        title: "おすすめのゲームが見つかりませんでした。",
-        image: "❓",
-        desc : "条件にあうゲームが見つかりませんでした。"
-      })
-    }
-
+      if (apiData.results && apiData.results.length > 0) {
+        const topGames = apiData.results.slice(0, 3).map((game: any) => ({
+          title: game.name,
+          image: game.background_image,
+          desc: `評価: ${game.rating} / 発売日: ${game.released}`
+        }));
+  
+        setResultGame(topGames);
+      } else {
+        setResultGame([{
+          title: "おすすめのゲームが見つかりませんでした。",
+          image: "❓",
+          desc : "条件にあうゲームが見つかりませんでした。"
+        }]);
+      }
+  
       nextStage();
-
+  
     } catch (error) {
       console.error("APIの取得に失敗しました", error);
-          setResultGame({
+      setResultGame([{
         title: "エラーが発生しました",
         image: "☠️",
         desc: "データの取得に失敗しました。電波のいい環境でもう一度お試しください"
-      });
+      }]);
       
       nextStage();
-      
     }
 
   };
 
-  const resetApp = () => {
+    const resetApp = () => {
     setScreenStage(0);
     setAnswers([]);
     setHardware('');
@@ -202,9 +200,7 @@ export default function App() {
       {screenStage ===7&&(
         <ResultSection
           onStart={resetApp}
-          title={resultGame.title}
-          image={resultGame.image}
-          desc={resultGame.desc}
+          resultGame={resultGame}
           />  
       )}
     </div>
