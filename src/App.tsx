@@ -84,7 +84,7 @@ export default function App() {
         desc: "test"
       });
       
-      const apiUrl = `https://rawg.io{apikey}&genres=${genreString.toLowerCase()}&page_size=1`;
+      const apiUrl = `https://api.rawg.io/api/games?key=${apikey}&genres=${genreString.toLowerCase()}&page_size=1`;
       const response = await fetch(apiUrl);
       const apiData = await response.json();
 
