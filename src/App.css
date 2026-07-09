@@ -258,7 +258,7 @@
   }
 
   .Cassette-card.active::before{
-    opacity: 0.5;
+    opacity: 0.6;
   }
 
  .Cassette-card:hover .Cassette-desc{
