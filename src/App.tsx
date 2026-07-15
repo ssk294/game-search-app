@@ -18,6 +18,35 @@ export default function App() {
     { title: '', image: '', desc: '' }
   ]);
 
+  const buildFilterParams = (answers:string[]) =>{
+    let tags: string[] = [];
+    let ordering = "-rating";
+
+    if (answers[0] === "とにかく評価がいいもの！"){
+      ordering = "-rating";
+    } else if(answers[0] === "話題の最新作！"){
+      ordering = "-released";
+    }   
+
+    if (answers[1] === "１人でじっくり！"){
+      tags.push("singleplayer");
+    }else if (answers[1] === "友達や誰かとワイワイ！"){
+      tags.push("multiplayer");
+    }
+
+    if (answers[2] === "3D美麗グラフィック！"){
+      tags.push("3d");
+    }else if (answers[2] === "2Dやイラスト！"){
+      tags.push("2d");
+    }
+
+    if (answers[3] === "基本無料で気軽に始めたい！"){
+      tags.push("free-to-play");
+    }
+
+    return { tags: tags.join(","), ordering };
+  };
+
   const [screenStage, setScreenStage] = useState(0);
   const nextStage = () =>{
     setScreenStage(screenStage + 1);
