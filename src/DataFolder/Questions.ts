@@ -1,8 +1,8 @@
 export const QUESTION_DATA = [
     {
-      title: "今の気分は？",
-      ansA: "手軽にプレイしたい！",
-      ansB: "じっくりプレイしたい！"
+      title: "求めるのは？",
+      ansA: "とにかく評価がいいもの！",
+      ansB: "話題の最新作！"
     },
 
     {
