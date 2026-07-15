@@ -1,73 +1,27 @@
-# React + TypeScript + Vite
+#🎮 ゲームを手軽に検索できるツール（開発中）
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ゲームが好きな人が手軽に診断から検索できるWebツールです。
+６月からReactを独学しながら現在進行形で開発しています。
 
-Currently, two official plugins are available:
+##🌐URL
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+https://ssk294.github.io/game-search-app/
 
-## React Compiler
+##✨今できること（機能）
+ページの遷移機能（ボタン押下による画面の切り替え）
+ゲームの診断、ジャンル選択機能（※現在、検索結果との条件分岐を開発中）
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+##🔒セキュリティと開発状況について（重要）
+APIキーの隠蔽(.env):セキュリティ及び情報漏洩防止の観点から、RAWGのAPIキーはローカル環境の'.env’ファイルにて管理しています。
+本番環境での制限:GithubへのAPIキー流出を完全に防ぐため、現在公開中の本番環境(Github Pages)では一時的にAPIリクエストに制限をかけています。
+ローカル開発環境の実績:自身のローカル開発環境においては、APIからリアルタイムでデータを正常に取得し、おすすめのゲームを表示・連動させる実装まで完了しています。
 
-## Expanding the ESLint configuration
+##🛠️使っている技術
+言語: TypeScript, JavaScript, CSS, HTML
+フレームワーク/ライブラリ: React
+開発環境: StackBlitz, vscode
+使用API: RAWG Video Games Database API
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+##🧠開発のこだわり
+脱・コピペコード: AIツールをアドバイザーとして活用していますが、ただのコードをコピペするのではなく、意味を理解するためにも面倒でも都度タイピングしたり疑問は質問することを心がけています。
+自走力の育成: 予期せぬエラーが出た際も、AIと対話しながら原因を突き止め、自分で解決する力を意識して開発しています。
