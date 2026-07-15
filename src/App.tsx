@@ -19,19 +19,19 @@ export default function App() {
   ]);
 
   const buildFilterParams = (answers:string[]) =>{
-    let tags: string[] = [];
-    let ordering = "-rating";
+    let tags: string[] = [];/*選ばれたタグをどんどん追加していく箱*/
+    let ordering = "-rating";/*初めに評価がいいものを入れておく*/
 
     if (answers[0] === "とにかく評価がいいもの！"){
-      ordering = "-rating";
+      ordering = "-rating";/*orderingに評価重視を入れる*/
     } else if(answers[0] === "話題の最新作！"){
-      ordering = "-released";
+      ordering = "-released";/*リリース重視を入れる*/
     }   
 
     if (answers[1] === "１人でじっくり！"){
-      tags.push("singleplayer");
+      tags.push("singleplayer");/*tagsに一人派を追加する。*/
     }else if (answers[1] === "友達や誰かとワイワイ！"){
-      tags.push("multiplayer");
+      tags.push("multiplayer");/*tagsにマルチ派を追加する（以後同じ）*/
     }
 
     if (answers[2] === "3D美麗グラフィック！"){
