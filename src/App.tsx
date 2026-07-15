@@ -18,7 +18,7 @@ export default function App() {
     { title: '', image: '', desc: '' }
   ]);
 
-  const buildFilterParams = (answers:string[]) =>{
+  const buildFilterParams = (answers:string[]) =>{/*buildFilterParamsは機械でanswersは材料を入れるという意味*/
     let tags: string[] = [];/*選ばれたタグをどんどん追加していく箱*/
     let ordering = "-rating";/*初めに評価がいいものを入れておく*/
 
@@ -44,8 +44,9 @@ export default function App() {
       tags.push("free-to-play");
     }
 
-    return { tags: tags.join(","), ordering };
+    return { tags: tags.join(","), ordering };/*箱につめてデータを出荷*/
   };
+
 
   const [screenStage, setScreenStage] = useState(0);
   const nextStage = () =>{
@@ -98,7 +99,7 @@ export default function App() {
       return;
     }
 
-    const answersString = answers.join(','); 
+    const { tags, ordering} = buildFilterParams(answers);/*アンサーデータを受け取る*/
     const genreString = genres.join(',');
 
     const apikey = import.meta.env.VITE_RAWG_API_KEY;
@@ -113,7 +114,7 @@ export default function App() {
         desc: "test"
       });
       
-      const apiUrl = `https://api.rawg.io/api/games?key=${apikey}&genres=${genreString}&page_size=3`;
+      const apiUrl = `https://api.rawg.io/api/games?key=${apikey}&genres=${genreString}&tags=${tags}&otdering=${ordering}&page_size=3`;
       console.log("実際に送っているURL:", apiUrl);
       const response = await fetch(apiUrl);
       const apiData = await response.json();
