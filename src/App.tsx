@@ -120,19 +120,28 @@ export default function App() {
       const response = await fetch(apiUrl);
       const apiData = await response.json();
       console.log("APIから届いたデータ:", apiData);
+      console.log("APIが返した件数:", apiData.results?.length);
+      console.log("1件目のtagsの中身:", apiData.results?.[0]?.tags);
 
       const requiredTags = tags.split(",").filter((t) => t !== "");
-      const strictResults = apiData.results.filter((game: any) => 
-      requiredTags.every((requiredTag) =>
+      console.log("必要なタグ一覧:", requiredTags);    
+
+      const scoredResults = apiData.results.map((game: any) => {
+        const matchCount = requiredTags.filter((requiredTag) =>
         game.tags.some((gameTag: any) => gameTag.slug === requiredTag)
-        )
-      );
+        ).length;
+
+        return{...game,matchCount };
+      });
       
-      if (strictResults && strictResults.length > 0) {
-        const topGames = strictResults.slice(0, 5).map((game: any) => ({
+      const sortedResults = scoredResults.sort((a: any, b: any) => b.matchCount - a.matchCount);
+      console.log("並び替え後（上位5件の一致数）:", sortedResults.slice(0, 5).map((g: any) => g.matchCount));
+
+      if (sortedResults.length > 0){
+        const topGames = sortedResults.slice(0, 5).map((game: any) => ({
           title: game.name,
           image: game.background_image,
-          desc: `評価: ${game.rating} / 発売日: ${game.released}`
+          desc: `評価: ${game.rating} / 発売日: ${game.released}` 
         }));
   
         setResultGame(topGames);
