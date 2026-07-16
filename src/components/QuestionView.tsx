@@ -15,11 +15,11 @@ export default function QuestionView({ onStart ,title, ansA ,ansB, onBack } :Que
 
             <div className ="Question-container">
 
-                    <button className ="Question-btn" onClick ={() => onStart('A')} >
+                    <button className ="Question-btn" onClick ={() => onStart(ansA)} >
                         {ansA}
                     </button>
 
-                    <button className ="Question-btn" onClick ={() => onStart('B')} >
+                    <button className ="Question-btn" onClick ={() => onStart(ansB)} >
                         {ansB}
                     </button>
 
