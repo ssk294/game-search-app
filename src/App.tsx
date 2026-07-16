@@ -108,11 +108,11 @@ export default function App() {
 
         setResultGame([]);
 
-        setResultGame({
+        setResultGame([{
         title: "API接続待ち...",
         image: "https://placehold.jp/150x150.png",
         desc: "test"
-      });
+        }]);
       
       const apiUrl = `https://api.rawg.io/api/games?key=${apikey}&genres=${genreString}&tags=${tags}&ordering=${ordering}&page_size=3`;
       console.log("実際に送っているURL:", apiUrl);
@@ -157,7 +157,7 @@ export default function App() {
     setAnswers([]);
     setHardware('');
     setSelectedGenres([]);
-    setResultGame({ title: '', image: '', desc: '' });
+    setResultGame([{ title: '', image: '', desc: '' }]);
   };
 
   return (
