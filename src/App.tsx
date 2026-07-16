@@ -100,6 +100,7 @@ export default function App() {
     }
 
     const { tags, ordering} = buildFilterParams(answers);/*アンサーデータを受け取る*/
+    console.log("answersの中身:", answers);
     const genreString = genres.join(',');
 
     const apikey = import.meta.env.VITE_RAWG_API_KEY;
@@ -114,7 +115,7 @@ export default function App() {
         desc: "test"
         }]);
       
-      const apiUrl = `https://api.rawg.io/api/games?key=${apikey}&genres=${genreString}&tags=${tags}&ordering=${ordering}&page_size=3`;
+      const apiUrl = `https://api.rawg.io/api/games?key=${apikey}&genres=${genreString}&tags=${tags}&ordering=${ordering}&page_size=5`;
       console.log("実際に送っているURL:", apiUrl);
       const response = await fetch(apiUrl);
       const apiData = await response.json();
@@ -122,7 +123,7 @@ export default function App() {
 
       
       if (apiData.results && apiData.results.length > 0) {
-        const topGames = apiData.results.slice(0, 3).map((game: any) => ({
+        const topGames = apiData.results.slice(0, 5).map((game: any) => ({
           title: game.name,
           image: game.background_image,
           desc: `評価: ${game.rating} / 発売日: ${game.released}`
