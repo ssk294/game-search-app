@@ -269,25 +269,43 @@
 .Result-container{
   display: flex;
   flex-direction: column;
-  text-align: center;
   align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+.announce-text{
+  font-size: 25px;
+}
+
+.Result-card-container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 15px;
 }
 
 .Result-card{
-  border: 4px solid transparent;
-  background:
-    linear-gradient(#ffffff, #ffffff), 
-    linear-gradient(to right, #ff007f, #7f00ff, #00bfff, #00ffcc); 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #c7c6c6;
+  border-radius: 15px;
+  max-width: 400px;
+  padding: 10px;
+}
 
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
-  max-width: 480px;
-  padding: 8px;
+.Result-image-container{
+  width: 100%;
+  aspect-ratio: 16/ 9;
+  overflow: hidden;
+  border: 15px;
 }
 
 .Result-image{
-  width: 400px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
   border-radius: 15px;
 }
 
