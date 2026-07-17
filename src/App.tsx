@@ -115,7 +115,7 @@ export default function App() {
         desc: "test"
         }]);
       
-      const apiUrl = `https://api.rawg.io/api/games?key=${apikey}&genres=${genreString}&tags=${tags}&ordering=${ordering}&page_size=20`;
+      const apiUrl = `https://api.rawg.io/api/games?key=${apikey}&genres=${genreString}&tags=${tags}&ordering=${ordering}&page_size=30`;
       console.log("実際に送っているURL:", apiUrl);
       const response = await fetch(apiUrl);
       const apiData = await response.json();
@@ -135,10 +135,10 @@ export default function App() {
       });
       
       const sortedResults = scoredResults.sort((a: any, b: any) => b.matchCount - a.matchCount);
-      console.log("並び替え後（上位5件の一致数）:", sortedResults.slice(0, 5).map((g: any) => g.matchCount));
+      console.log("並び替え後（上位5件の一致数）:", sortedResults.slice(0, 10).map((g: any) => g.matchCount));
 
       if (sortedResults.length > 0){
-        const topGames = sortedResults.slice(0, 5).map((game: any) => ({
+        const topGames = sortedResults.slice(0, 10).map((game: any) => ({
           title: game.name,
           image: game.background_image,
           desc: `評価: ${game.rating} / 発売日: ${game.released}` 
