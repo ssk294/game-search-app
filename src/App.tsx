@@ -7,6 +7,7 @@ import {QUESTION_DATA} from "./DataFolder/Questions";
 import ThreeQuestionView from "./components/ThreeQuestionView";
 import GenreSelection from "./components/GenreSelection";
 import ResultSection from "./components/ResultSection";
+import {PLATFORM_MAP} from "./DataFolder/Platform_Map";
 
 export default function App() {
 
@@ -18,14 +19,23 @@ export default function App() {
     { title: '', image: '', desc: '' }
   ]);
 
-  const buildFilterParams = (answers:string[]) =>{/*buildFilterParamsは機械でanswersは材料を入れるという意味*/
+  const formatDate = (d: Date) => d.toISOString().split("T")[0];
+
+  const buildFilterParams = (answers:string[], hardware: string) =>{/*buildFilterParamsは機械でanswersは材料を入れるという意味*/
     let tags: string[] = [];/*選ばれたタグをどんどん追加していく箱*/
     let ordering = "-rating";/*初めに評価がいいものを入れておく*/
+    let dates = "";
 
     if (answers[0] === "とにかく評価がいいもの！"){
       ordering = "-rating";/*orderingに評価重視を入れる*/
     } else if(answers[0] === "話題の最新作！"){
-      ordering = "-released";/*リリース重視を入れる*/
+      ordering = "-added";
+      const today = new Date();
+      const pastDate = new Date();
+      pastDate.setDate(today.getDate() - 365);
+      const futureDate = new Date();
+      futureDate.setDate(today.getDate() + 365);
+      dates = `${formatDate(pastDate)},${formatDate(futureDate)}`; 
     }   
 
     if (answers[1] === "１人でじっくり！"){
@@ -44,7 +54,9 @@ export default function App() {
       tags.push("free-to-play");
     }
 
-    return { tags: tags.join(","), ordering };/*箱につめてデータを出荷*/
+    const platformId = PLATFORM_MAP[hardware] ?? "";
+
+    return { tags: tags.join(","), ordering, dates, platformId };/*箱につめてデータを出荷*/
   };
 
 
@@ -99,7 +111,7 @@ export default function App() {
       return;
     }
 
-    const { tags, ordering} = buildFilterParams(answers);/*アンサーデータを受け取る*/
+    const { tags, ordering, dates, platformId} = buildFilterParams(answers, hardware);/*アンサーデータを受け取る*/
     console.log("answersの中身:", answers);
     const genreString = genres.join(',');
 
@@ -115,7 +127,7 @@ export default function App() {
         desc: "test"
         }]);
       
-      const apiUrl = `https://api.rawg.io/api/games?key=${apikey}&genres=${genreString}&tags=${tags}&ordering=${ordering}&page_size=30`;
+      const apiUrl = `https://api.rawg.io/api/games?key=${apikey}&genres=${genreString}&tags=${tags}&ordering=${ordering}&dates=${dates}&platforms=${platformId}&page_size=30`;
       console.log("実際に送っているURL:", apiUrl);
       const response = await fetch(apiUrl);
       const apiData = await response.json();
