@@ -102,7 +102,7 @@
     background-clip: padding-box, border-box;
     /*↑多分ここまでの処理が切り抜き？*/
 
-    margin: 30px;
+    margin: 12px;
     padding: 12px 28px;
     border-radius: 24px;
     cursor: pointer;
