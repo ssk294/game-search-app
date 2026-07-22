@@ -3,9 +3,10 @@ import { useState } from 'react';
 import {GenreData} from '../DataFolder/GenreData';
 interface GenreSelectionProps{
     onStart: (selected: string[]) =>void;
+    onBack: () =>void;
 }
 
-export default function GenreSelection({ onStart } :GenreSelectionProps){
+export default function GenreSelection({ onStart, onBack } :GenreSelectionProps){
 
     const [selectedGenres, setSelectedGenres] =useState<string[]>([]);
 
@@ -27,31 +28,36 @@ export default function GenreSelection({ onStart } :GenreSelectionProps){
                     {GenreData.map((genre) => {
                     const isSelected = selectedGenres.includes(genre.id);
 
-                return (
-                    <button 
-                        key={genre.id}
-                        className={`Cassette-card ${isSelected ? 'active' : ''}`}
-                        onClick={() => handleCardClick(genre.id)}
-                        >
-                        
-                        <div className="Cassette-name">
-                            <h2>{genre.name}</h2>
-                        </div>
+                    return (
+                        <button 
+                            key={genre.id}
+                            className={`Cassette-card ${isSelected ? 'active' : ''}`}
+                            onClick={() => handleCardClick(genre.id)}
+                            >
+                            
+                            <div className="Cassette-name">
+                                <h2>{genre.name}</h2>
+                            </div>
 
-                        <div className="Cassette-icon">
-                            {genre.icon}
-                        </div>
+                            <div className="Cassette-icon">
+                                {genre.icon}
+                            </div>
 
-                        <div className="Cassette-desc">
-                            <p>{genre.desc}</p>
-                        </div>
+                            <div className="Cassette-desc">
+                                <p>{genre.desc}</p>
+                            </div>
 
-                    </button>
-        );
-    })}
-             <button className = 'start-btn' onClick={() => onStart(selectedGenres)}>
-            診断結果へ！
-            </button> 
+                        </button>
+                        );
+                        })}
+
+                        <div className ="btn-container">
+                            <button className = 'start-btn' onClick={() => onStart(selectedGenres)}>
+                            診断結果へ！
+                            </button> 
+
+                            <button  className="Back-btn-ver2" onClick={onBack}>前に戻る</button>
+                        </div>
                 </div>
             </div>
         </div>
