@@ -21,6 +21,8 @@ interface ResultSectionProps {
                         </div>
 
                         <p className="Result-desc">{game.desc}</p>
+
+                        <a href={game.url} target="_blank" rel= "noopener norefetter">詳細をみる！</a>
                     </div>
         
             ))}
