@@ -153,7 +153,8 @@ export default function App() {
         const topGames = sortedResults.slice(0, 10).map((game: any) => ({
           title: game.name,
           image: game.background_image,
-          desc: `評価: ${game.rating} / 発売日: ${game.released}` 
+          desc: `評価: ${game.rating} / 発売日: ${game.released}` ,
+          url: `https://rawg.io/games/${game.slug}`,
         }));
   
         setResultGame(topGames);
