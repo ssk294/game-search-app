@@ -320,6 +320,12 @@
   display: block;
   border-radius: 15px;
 }
+.Result-tags-container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  line-height: 1.8;
+}
 
 /*progress-barエリア*/
 .progress-bar-container{
