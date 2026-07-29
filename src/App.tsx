@@ -25,6 +25,7 @@ export default function App() {
     let tags: string[] = [];/*選ばれたタグをどんどん追加していく箱*/
     let ordering = "-rating";/*初めに評価がいいものを入れておく*/
     let dates = "";
+    let mustBeFree = false;
 
     if (answers[0] === "とにかく評価がいいもの！"){
       ordering = "-rating";/*orderingに評価重視を入れる*/
@@ -51,12 +52,12 @@ export default function App() {
     }
 
     if (answers[3] === "基本無料で気軽に始めたい！"){
-      tags.push("free-to-play");
+      mustBeFree = true;
     }
 
     const platformId = PLATFORM_MAP[hardware] ?? "";
 
-    return { tags: tags.join(","), ordering, dates, platformId };/*箱につめてデータを出荷*/
+    return { tags: tags.join(","), ordering, dates, platformId, mustBeFree};/*箱につめてデータを出荷*/
   };
 
 
@@ -111,7 +112,7 @@ export default function App() {
       return;
     }
 
-    const { tags, ordering, dates, platformId} = buildFilterParams(answers, hardware);/*アンサーデータを受け取る*/
+    const { tags, ordering, dates, platformId, mustBeFree } = buildFilterParams(answers, hardware);/*アンサーデータを受け取る*/
     console.log("answersの中身:", answers);
     const genreString = genres.join(',');
 
@@ -127,18 +128,31 @@ export default function App() {
         desc: "test"
         }]);
       
-      const apiUrl = `https://api.rawg.io/api/games?key=${apikey}&genres=${genreString}&tags=${tags}&ordering=${ordering}&dates=${dates}&platforms=${platformId}&page_size=30`;
+      const apiTagsParam = mustBeFree ? "free-to-play": tags;
+
+      const apiUrl = `https://api.rawg.io/api/games?key=${apikey}&genres=${genreString}&tags=${apiTagsParam}&ordering=${ordering}&dates=${dates}&platforms=${platformId}&page_size=30`;
       console.log("実際に送っているURL:", apiUrl);
       const response = await fetch(apiUrl);
       const apiData = await response.json();
       console.log("APIから届いたデータ:", apiData);
       console.log("APIが返した件数:", apiData.results?.length);
       console.log("1件目のtagsの中身:", apiData.results?.[0]?.tags);
+      console.log("APIが返した30件のタイトル一覧:", apiData.results.map((g: any) => g.name));
+      console.log("30件のそれぞれのタグ:", apiData.results.map((g: any) => ({ name: g.name, tags: g.tags?.map((t: any) =>t.slug)}))) ;
+
+      let filteredResults = apiData.results;
+
+      if(mustBeFree){
+        filteredResults = filteredResults.filter((game: any) =>
+          game.tags?.some((t: any) => t.slug ==="free-to-play")
+          );
+      }
+      console.log("無料フィルター後の件数:", filteredResults.length);
 
       const requiredTags = tags.split(",").filter((t) => t !== "");
       console.log("必要なタグ一覧:", requiredTags);    
 
-      const scoredResults = apiData.results.map((game: any) => {
+      const scoredResults = filteredResults.map((game: any) => {
         const matchCount = requiredTags.filter((requiredTag) =>
         game.tags.some((gameTag: any) => gameTag.slug === requiredTag)
         ).length;
