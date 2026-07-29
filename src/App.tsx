@@ -154,8 +154,8 @@ export default function App() {
           title: game.name,
           image: game.background_image,
           desc: `評価: ${game.rating} / 発売日: ${game.released}` ,
-          url: `https://rawg.io/games/${game.slug}`,
-          tags: (game.tags ?? []).slice(0, 5).map((t:any) => t.name),
+          url: `https://rawg.io/games/${game.slug}`,/*URLも飛べるように*/
+          tags: (game.tags ?? []).filter((t: any) => t.language === "eng").slice(0, 5).map((t: any) => t.name),/*ゲームのタグの上位５件を英語のフィルタリングして表示*/
         }));
   
         setResultGame(topGames);
