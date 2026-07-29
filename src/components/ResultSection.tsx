@@ -22,7 +22,7 @@ interface ResultSectionProps {
 
                         <p className="Result-desc">{game.desc}</p>
 
-                        <div className="Result-tags" >
+                        <div className="Result-tags-container" >
                             {game.tags && game.tags.map((tag: string, tagIndex: number) =>(
                                 <span className="Result-tag-badge" key={tagIndex}>
                                     {tag}    
