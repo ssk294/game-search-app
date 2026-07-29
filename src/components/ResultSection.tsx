@@ -22,6 +22,14 @@ interface ResultSectionProps {
 
                         <p className="Result-desc">{game.desc}</p>
 
+                        <div className="Result-tags" >
+                            {game.tag && game.tags.map((tags: string, tagIndex: number) =>(
+                                <span className="Result-tag-badge" key={tagIndex}>
+                                    {tag}    
+                                </span>
+                            ))}
+                        </div>
+
                         <a href={game.url} target="_blank" rel= "noopener norefetter">詳細をみる！</a>
                     </div>
         
