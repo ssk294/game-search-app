@@ -11,11 +11,11 @@ import {PLATFORM_MAP} from "./DataFolder/Platform_Map";
 
 export default function App() {
 
-  const [answers, setAnswers] = useState<string[]>([]);
-  const [hardware, setHardware] = useState<string>('');
-  const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
+  const [answers, setAnswers] = useState<string[]>([]);/*4つの質問の回答をためる箱*/
+  const [hardware, setHardware] = useState<string>('');/*選んだハードを入れる棚*/
+  const [selectedGenres, setSelectedGenres] = useState<string[]>([]);/*選らんだジャンルを入れる箱*/
 
-  const [resultGame, setResultGame] = useState<any[]>([
+  const [resultGame, setResultGame] = useState<any[]>([/*最終的な画面に表示する情報を入れる箱*/
     { title: '', image: '', desc: '' }
   ]);
 
