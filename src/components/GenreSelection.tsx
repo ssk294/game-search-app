@@ -47,17 +47,17 @@ export default function GenreSelection({ onStart, onBack } :GenreSelectionProps)
                                 <p>{genre.desc}</p>
                             </div>
 
-                        </button>
-                        );
-                        })}
+                            </button>
+                            );
+                            })}
+                            </div>
 
-                        <div className ="btn-container">
+                            <div className ="btn-container">
                             <button className = 'start-btn' onClick={() => onStart(selectedGenres)}>
                             診断結果へ！
                             </button> 
 
                             <button  className="Back-btn-ver2" onClick={onBack}>前に戻る</button>
-                        </div>
                 </div>
             </div>
         </div>
