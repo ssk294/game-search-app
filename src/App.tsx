@@ -19,6 +19,8 @@ export default function App() {
     { title: '', image: '', desc: '' }
   ]);
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const formatDate = (d: Date) => d.toISOString().split("T")[0];
 
   const buildFilterParams = (answers:string[], hardware: string) =>{/*buildFilterParamsは機械でanswersは材料を入れるという意味*/
@@ -118,6 +120,8 @@ export default function App() {
 
     const apikey = import.meta.env.VITE_RAWG_API_KEY;
 
+    setIsLoading(true);
+
     try {
 
         setResultGame([]);
@@ -192,6 +196,8 @@ export default function App() {
       }]);
       
       nextStage();
+    }finally{
+      setIsLoading(false);
     }
 
   };
@@ -206,6 +212,11 @@ export default function App() {
 
   return (
     <div>
+      {isLoading &&(
+        <div className="Loading-overlay">
+          <p className="Loading-text">Now Loading...</p>
+        </div>
+      )}
 
     {screenStage >= 1 && screenStage <= 6 && (
       <div className ="progress-bar-container">
