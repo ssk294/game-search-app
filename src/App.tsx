@@ -8,7 +8,7 @@ import ThreeQuestionView from "./components/ThreeQuestionView";
 import GenreSelection from "./components/GenreSelection";
 import ResultSection from "./components/ResultSection";
 import {PLATFORM_MAP} from "./DataFolder/Platform_Map";
-import {MOCKGAMES} from "./DataFolder/MockGames";
+import {MOCK_GAMES} from "./DataFolder/MockGames";
 import {scoreMockGames, formatForDisplay} from "./DataFolder/mockUtils";
 
 export default function App() {
@@ -194,7 +194,7 @@ export default function App() {
 
       const requiredTags = tags.split(",").filter((t) => t !== "");
 
-      const mockScored = scoreMockGames(MOCKGAMES,{
+      const mockScored = scoreMockGames(MOCK_GAMES,{
         genreList: genres,
         requiredTags,
         platformId,
