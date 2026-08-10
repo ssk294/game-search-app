@@ -195,6 +195,7 @@ export default function App() {
       const requiredTags = tags.split(",").filter((t) => t !== "");
 
       const mockScored = scoreMockGames(MOCKGAMES,{
+        genreList: genres,
         requiredTags,
         platformId,
         mustBeFree,
