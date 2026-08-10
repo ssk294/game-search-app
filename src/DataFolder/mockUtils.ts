@@ -1,5 +1,5 @@
 export function scoreMockGames(
-    game:any[],
+    games:any[],
     {
         genreList,
         requiredTags,
@@ -19,11 +19,21 @@ export function scoreMockGames(
         let matchCount = 0;
 
         if(genreList.some((g) => game.genres?.some((gg: any) => String(gg.id) === g))){
+            matchCount += 2;
+        }
+
+        matchCount += requiredTags.filter((tag) =>
+            game.tags?.some((gt:any) => gt.slug === tag)
+            ).length;
+
+        if (platformId && game.platforms?.some((p:any) => String(p.platform.id) === String(platformId))){
             matchCount += 1;
         }
 
         return { ...game,matchCount};
     });
+
+    return scored.sort((a,b) => b.matchCount - a.matchCount);
 }
 
 export function formatForDisplay(games: any[]){
