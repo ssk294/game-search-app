@@ -30,7 +30,7 @@ interface ResultSectionProps {
                             ))}
                         </div>
 
-                        <a href={game.url} target="_blank" rel= "noopener noreferrer">詳細をみる！</a>
+                        <a href={game.url} className="Result-Url" target="_blank" rel= "noopener noreferrer">詳細をみる！</a>
                     </div>
         
             ))}
