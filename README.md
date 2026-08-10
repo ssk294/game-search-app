@@ -3,7 +3,7 @@
 ゲームが好きな人が手軽に診断から検索できるWebツールです。
 6月からReactを独学しながら現在進行形で開発しています。
 
-🌐URL
+🌐アプリURL
 
 https://ssk294.github.io/game-search-app/
 
