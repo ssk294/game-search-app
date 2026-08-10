@@ -8,6 +8,8 @@ import ThreeQuestionView from "./components/ThreeQuestionView";
 import GenreSelection from "./components/GenreSelection";
 import ResultSection from "./components/ResultSection";
 import {PLATFORM_MAP} from "./DataFolder/Platform_Map";
+import {MOCKGAMES} from "./DataFolder/MockGames";
+import {scoreMockGames, formatForDisplay} from "./DataFolder/mockUtils";
 
 export default function App() {
 
@@ -188,14 +190,19 @@ export default function App() {
       nextStage();
   
     } catch (error) {
-      console.error("APIの取得に失敗しました", error);
-      setResultGame([{
-        title: "エラーが発生しました",
-        image: "☠️",
-        desc: "データの取得に失敗しました。電波のいい環境でもう一度お試しください"
-      }]);
-      
+      console.error("APIの取得に失敗しました。モックデータを使用します。", error);
+
+      const requiredTags = tags.split(",").filter((t) => t !== "");
+
+      const mockScored = scoreMockGames(MOCKGAMES,{
+        requiredTags,
+        platformId,
+        mustBeFree,
+      });
+
+      setResultGame(formatForDisplay(mockScored));
       nextStage();
+      
     }finally{
       setIsLoading(false);
     }
