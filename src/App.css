@@ -325,7 +325,20 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  line-height: 1.8;
+  gap: 6px;
+}
+
+.Result-tag-badge{
+  display: inline-block;
+  padding: 4px, 10px;
+  border-radius: 8px;
+  background-color: #686868;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.Result-Url{
+  margin: 8px;
 }
 
 /*progress-barエリア*/
