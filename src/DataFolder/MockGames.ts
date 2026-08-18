@@ -22,6 +22,7 @@ export const MOCK_GAMES = [{
    tags:[
     { name: "Singleplayer", slug: "singleplayer", language: "eng" },
     { name: "3D", slug: "3d", language: "eng" },
+    { name: "Free to Play", slug: "free-to-play", language: "eng"},
    ],
    platforms:[
       { platform: {id: 4} },
