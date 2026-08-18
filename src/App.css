@@ -1,16 +1,5 @@
-body {
-  position: relative;
-  min-height: 100vh;
-  background-color: #ffffff;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(135deg, #1e1b4b, #7c3aed, #db2777);
-  opacity: 0.65;
-  z-index: -1;
+body{
+  background-color: #dbdbdb;
 }
 
 /*FeatureSectionエリア*/
