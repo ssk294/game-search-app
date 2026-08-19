@@ -222,7 +222,13 @@ export default function App() {
     <div>
       {isLoading &&(
         <div className="Loading-overlay">
-          <p className="Loading-text">Now Loading...</p>
+          <p className="Loading-text">
+            {"Now Loading...".split("").map((char,i) => (
+              <span key={i} style={{ animationDelay: `${i * 0.05}s`}}>
+                {char === " " ? "\u00A0" : char}
+              </span>
+            ))}
+          </p>
         </div>
       )}
 
