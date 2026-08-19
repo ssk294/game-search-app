@@ -10,6 +10,7 @@ import ResultSection from "./components/ResultSection";
 import {PLATFORM_MAP} from "./DataFolder/Platform_Map";
 import {MOCK_GAMES} from "./DataFolder/MockGames";
 import {scoreMockGames, formatForDisplay} from "./DataFolder/mockUtils";
+import ConstellationBackground from "./components/ConstellationBackground";
 
 export default function App() {
 
@@ -220,6 +221,9 @@ export default function App() {
 
   return (
     <div>
+
+      <ConstellationBackground/>
+
       {isLoading &&(
         <div className="Loading-overlay">
           <p className="Loading-text">

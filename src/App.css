@@ -1,5 +1,5 @@
 body{
-  background-color: #dbdbdb;
+  background-color: #f4f2ee;
 }
 
 /*FeatureSectionエリア*/
@@ -391,4 +391,14 @@ body{
 @keyframes bounce {
  0%, 60%, 100% { transform: translateY(0); } 
  30% { transform: translateY(-12px); }
+}
+
+.constellation-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; 
+  background: #f8f6f2;
 }
