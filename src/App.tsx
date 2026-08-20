@@ -11,9 +11,12 @@ import {PLATFORM_MAP} from "./DataFolder/Platform_Map";
 import {MOCK_GAMES} from "./DataFolder/MockGames";
 import {scoreMockGames, formatForDisplay} from "./DataFolder/mockUtils";
 import ConstellationBackground from "./components/ConstellationBackground";
+import FavoritePages, { type FavoriteGame } from './components/FavoritePages';
 
 export default function App() {
 
+  const [showFavorites, setShowFavorites] = useState(false);
+  const [favorites, setFavorites] = useState<FavoriteGame[]>([]);
   const [answers, setAnswers] = useState<string[]>([]);/*4つの質問の回答をためる箱*/
   const [hardware, setHardware] = useState<string>('');/*選んだハードを入れる棚*/
   const [selectedGenres, setSelectedGenres] = useState<string[]>([]);/*選らんだジャンルを入れる箱*/
@@ -236,16 +239,36 @@ export default function App() {
         </div>
       )}
 
+      {(screenStage === 0 || screenStage === 7) && !showFavorites && (
+        <button
+          className="favorites-fab"
+          onClick={() => setShowFavorites(true)}
+        >
+          ⭐
+        </button>
+      )}
+
     {screenStage >= 1 && screenStage <= 6 && (
       <div className ="progress-bar-container">
           <div className ="progress-bar-fill" style={{ width:`${(screenStage - 1 )/ 5 * 100}%`}}/>
       </div>
     )}
 
-      {screenStage === 0&&(
-        <WelcomeView onStart={nextStage} />
-      )}
+      {showFavorites ? (
+        <FavoritesPage
+          favorites={favorites}
+          onRemove={(title) => {
+            setFavorites(favorites.filter((game) => game.title !== title));
+          }}
+          onBack={() => setShowFavorites(false)}
+        />
+      ) : (
+        <>
+          {screenStage === 0&&(
+            <WelcomeView onStart={nextStage} />
+          )} 
 
+     
       {screenStage === 1&& (
         <QuestionView 
           onStart={handleQuestionAnswer}
@@ -305,6 +328,8 @@ export default function App() {
           onStart={resetApp}
           resultGame={resultGame}
           />  
+      )}
+        </>
       )}
     </div>
   );
