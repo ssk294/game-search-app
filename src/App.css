@@ -403,3 +403,9 @@ body{
   opacity: 50%;
   background: rgb(255, 255, 255);
 }
+
+/*FavoritePagesエリア*/
+.Favorite-genre-section{
+  display: flex;
+  justify-content: center;
+}

@@ -255,7 +255,7 @@ export default function App() {
     )}
 
       {showFavorites ? (
-        <FavoritesPage
+        <FavoritePages
           favorites={favorites}
           onRemove={(title) => {
             setFavorites(favorites.filter((game) => game.title !== title));
