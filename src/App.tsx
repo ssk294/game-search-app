@@ -44,45 +44,47 @@ export default function App() {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const formatDate = (d: Date) => d.toISOString().split("T")[0];
+  const formatDate = (d: Date) => d.toISOString().split("T")[0];/*日付を変換する関数*/
 
+  /*build(省略)にはアンサー(文字列),ハードウェア(文字列)が入っていく*/
   const buildFilterParams = (answers:string[], hardware: string) =>{/*buildFilterParamsは機械でanswersは材料を入れるという意味*/
-    let tags: string[] = [];/*選ばれたタグをどんどん追加していく箱*/
-    let ordering = "-rating";/*初めに評価がいいものを入れておく*/
-    let dates = "";
-    let mustBeFree = false;
+      let tags: string[] = [];/*選ばれたタグをどんどん追加していく箱*/
+      let ordering = "-rating";/*初めに評価がいいものを入れておく*/
+      let dates = "";
+      let mustBeFree = false;/*最初は無料じゃないと指定*/
 
-    if (answers[0] === "とにかく評価がいいもの！"){
-      ordering = "-rating";/*orderingに評価重視を入れる*/
-    } else if(answers[0] === "話題の最新作！"){
-      ordering = "-added";
-      const today = new Date();
-      const pastDate = new Date();
-      pastDate.setDate(today.getDate() - 365);
-      const futureDate = new Date();
-      futureDate.setDate(today.getDate() + 365);
-      dates = `${formatDate(pastDate)},${formatDate(futureDate)}`; 
-    }   
+      if (answers[0] === "とにかく評価がいいもの！"){
+        ordering = "-rating";/*もし評価がいいものを押されたらorderingに評価重視を入れる*/
+      } else if(answers[0] === "話題の最新作！"){
+        ordering = "-added";
 
-    if (answers[1] === "１人でじっくり！"){
-      tags.push("singleplayer");/*tagsに一人派を追加する。*/
-    }else if (answers[1] === "友達や誰かとワイワイ！"){
-      tags.push("multiplayer");/*tagsにマルチ派を追加する（以後同じ）*/
-    }
+        const today = new Date();
+        const pastDate = new Date();
+        pastDate.setDate(today.getDate() - 365);
+        const futureDate = new Date();
+        futureDate.setDate(today.getDate() + 365);
+        dates = `${formatDate(pastDate)},${formatDate(futureDate)}`; /*47行の日付変換がここにきて回収*/
+      }   
 
-    if (answers[2] === "3D美麗グラフィック！"){
-      tags.push("3d");
-    }else if (answers[2] === "2Dやイラスト！"){
-      tags.push("2d");
-    }
+      if (answers[1] === "１人でじっくり！"){
+        tags.push("singleplayer");/*tagsに一人派を追加する。*/
+      }else if (answers[1] === "友達や誰かとワイワイ！"){
+        tags.push("multiplayer");/*tagsにマルチ派を追加する（以後同じ）*/
+      }
 
-    if (answers[3] === "基本無料で気軽に始めたい！"){
-      mustBeFree = true;
-    }
+      if (answers[2] === "3D美麗グラフィック！"){
+        tags.push("3d");
+      }else if (answers[2] === "2Dやイラスト！"){
+        tags.push("2d");
+      }
 
-    const platformId = PLATFORM_MAP[hardware] ?? "";
+      if (answers[3] === "基本無料で気軽に始めたい！"){
+        mustBeFree = true;
+      }
 
-    return { tags: tags.join(","), ordering, dates, platformId, mustBeFree};/*箱につめてデータを出荷*/
+      const platformId = PLATFORM_MAP[hardware] ?? "";
+
+      return { tags: tags.join(","), ordering, dates, platformId, mustBeFree};/*箱につめてデータを出荷*/
   };
 
 
