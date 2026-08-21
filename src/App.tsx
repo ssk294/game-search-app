@@ -16,7 +16,24 @@ import FavoritePages, { type FavoriteGame } from './components/FavoritePages';
 export default function App() {
 
   const [showFavorites, setShowFavorites] = useState(false);
-  const [favorites, setFavorites] = useState<FavoriteGame[]>([]);
+  const [favorites, setFavorites] = useState<FavoriteGame[]>(() => {
+    const saved = localStorage.getItem('favorites');
+    return saved ? JSON.parse(saved) : [];
+  });
+  const handleSaveFavorite = (game: any) => {
+    const alreadySaved = favorites.some((f) => f.title === game.title);/*同じタイトルのゲームが保存されてないかチェック*/
+    if (alreadySaved) return;
+
+    const newFavorite: FavoriteGame = {
+      ...game,
+      genreIds: selectedGenres,
+    };
+
+  const updated = [...favorites, newFavorite];
+  setFavorites(updated);
+  localstarage.setItem('favorites', JSON.stringify(updated));
+  };
+
   const [answers, setAnswers] = useState<string[]>([]);/*4つの質問の回答をためる箱*/
   const [hardware, setHardware] = useState<string>('');/*選んだハードを入れる棚*/
   const [selectedGenres, setSelectedGenres] = useState<string[]>([]);/*選らんだジャンルを入れる箱*/
@@ -258,7 +275,9 @@ export default function App() {
         <FavoritePages
           favorites={favorites}
           onRemove={(title) => {
-            setFavorites(favorites.filter((game) => game.title !== title));
+            const updated = favorites.filter((game) => game.title !== title);
+            setFavorites(updated)
+            localStorage.setItem('favorites', JSON.stringify(updated));
           }}
           onBack={() => setShowFavorites(false)}
         />
@@ -327,6 +346,8 @@ export default function App() {
         <ResultSection
           onStart={resetApp}
           resultGame={resultGame}
+          onSave={handleSaveDavorite}
+          favorites={favorites}
           />  
       )}
         </>
