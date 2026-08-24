@@ -31,7 +31,7 @@ export default function App() {
 
   const updated = [...favorites, newFavorite];
   setFavorites(updated);
-  localstarage.setItem('favorites', JSON.stringify(updated));
+  localStorage.setItem('favorites', JSON.stringify(updated));
   };
 
   const [answers, setAnswers] = useState<string[]>([]);/*4つの質問の回答をためる箱*/
@@ -348,7 +348,7 @@ export default function App() {
         <ResultSection
           onStart={resetApp}
           resultGame={resultGame}
-          onSave={handleSaveDavorite}
+          onSave={handleSaveFavorite}
           favorites={favorites}
           />  
       )}
