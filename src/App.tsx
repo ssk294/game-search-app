@@ -143,8 +143,6 @@ export default function App() {
     console.log("answersの中身:", answers);
     const genreString = genres.join(',');
 
-    const apikey = import.meta.env.VITE_RAWG_API_KEY;
-
     setIsLoading(true);
 
     try {
@@ -159,7 +157,7 @@ export default function App() {
       
       const apiTagsParam = mustBeFree ? "free-to-play": tags;
 
-      const apiUrl = `https://api.rawg.io/api/games?key=${apikey}&genres=${genreString}&tags=${apiTagsParam}&ordering=${ordering}&dates=${dates}&platforms=${platformId}&page_size=30`;
+      const apiUrl = `/api/games?genres=${genreString}&tags=${apiTagsParam}&ordering=${ordering}&dates=${dates}&platforms=${platformId}`;
       console.log("実際に送っているURL:", apiUrl);
       const response = await fetch(apiUrl);
       const apiData = await response.json();
