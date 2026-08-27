@@ -5,7 +5,7 @@
 
 🌐アプリURL
 
-https://game-search-app-git-main-ssk22.vercel.app/
+https://game-search-app-taupe.vercel.app/
 
 📱アプリの見た目(開発段階なので見た目に変更が入る場合があります。)
 
