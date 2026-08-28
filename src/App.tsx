@@ -190,8 +190,11 @@ export default function App() {
       const sortedResults = scoredResults.sort((a: any, b: any) => b.matchCount - a.matchCount);
       console.log("並び替え後（上位5件の一致数）:", sortedResults.slice(0, 10).map((g: any) => g.matchCount));
 
+      const topCandidates = sortedResults.slice(0, 25);
+      const shuffledCandidates = [...topCandidates].sort(() => Math.random() - 0.5);
+
       if (sortedResults.length > 0){
-        const topGames = sortedResults.slice(0, 10).map((game: any) => ({
+       const topGames = shuffledCandidates.slice(0, 15).map((game: any) => ({
           title: game.name,
           image: game.background_image,
           desc: `評価: ${game.rating} / 発売日: ${game.released}` ,
