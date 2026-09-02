@@ -287,9 +287,14 @@
   align-items: center;
   text-align: center;
   gap: 20px;
-
-
 }
+
+.Result-title-container{
+ display:  flex;
+}
+
+
+
 .announce-text{
   font-size: 25px;
 }
