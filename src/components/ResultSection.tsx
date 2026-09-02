@@ -19,7 +19,13 @@ interface ResultSectionProps {
                 return(
             
                     <div className="Result-card" key={index}>
-                        <h2>{game.title}</h2>
+                        <div className="Result-title-container">
+                            <h2>{game.title}</h2>
+
+                            <button className="Save-btn" onClick={() => onSave(game)} disabled={isSaved}>
+                                {isSaved ? "保存済み⭐": "保存する⭐"}
+                            </button>
+                        </div>
 
                         <div className="Result-image-container">
                             <img src={game.image} alt={game.title} className="Result-image" />
@@ -34,10 +40,6 @@ interface ResultSectionProps {
                                 </span>
                             ))}
                         </div>
-
-                        <button className="Save-btn" onClick={() => onSave(game)} disabled={isSaved}>
-                            {isSaved ? "保存済み⭐": "保存する⭐"}
-                        </button>
 
                         <a href={game.url} className="Result-Url" target="_blank" rel= "noopener noreferrer">詳細をみる！</a>
                     </div>
