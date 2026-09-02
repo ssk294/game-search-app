@@ -23,7 +23,7 @@ interface ResultSectionProps {
                             <h2>{game.title}</h2>
 
                             <button className="Save-btn" onClick={() => onSave(game)} disabled={isSaved}>
-                                {isSaved ? "保存済み⭐": "保存する⭐"}
+                                {isSaved ? "⭐": "❤️"}
                             </button>
                         </div>
 

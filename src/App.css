@@ -291,8 +291,33 @@
 
 .Result-title-container{
  display:  flex;
+ justify-content: space-between;
+ align-items: center;
+ gap: 8px;
 }
 
+.Result-title-container h2{
+  margin: 8px;
+  font-size: 20px;
+}
+
+.Save-btn{
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.Save-btn:hover{
+  transform: scale(1.4);
+}
 
 
 .announce-text{
