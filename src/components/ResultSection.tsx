@@ -1,5 +1,5 @@
 import '../App.css'
-import { getTagStyle }from '../components/TagColors'
+import { getTagStyle }from '../DataFolder/TagColors'
 interface ResultSectionProps {
     onStart: () => void;
     resultGame: any[]; 
@@ -35,11 +35,18 @@ interface ResultSectionProps {
                         <p className="Result-desc">{game.desc}</p>
 
                         <div className="Result-tags-container" >
-                            {game.tags && game.tags.map((tag: string, tagIndex: number) =>(
-                                <span className="Result-tag-badge" key={tagIndex}>
+                            {game.tags && game.tags.map((tag: string, tagIndex: number) =>{
+                            const style = getTagStyle(tag);
+                            
+                            return(
+                                <span className="Result-tag-badge" 
+                                key={tagIndex}
+                                style={{ backgroundColor: style.bg, color: style.color }}
+                                >
                                     {tag}    
                                 </span>
-                            ))}
+                            );
+                        })}
                         </div>
 
                         <a href={game.url} className="Result-Url" target="_blank" rel= "noopener noreferrer">詳細をみる！</a>
