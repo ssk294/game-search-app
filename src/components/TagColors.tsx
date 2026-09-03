@@ -20,7 +20,7 @@ const TAG_CATEGORIES: { keywords: string[]; color: string; bg: string}[] = [
         color: "#7A5300",
     },
 ];
-
+/*渡されたタグの名前がどのカテゴリに当てはまるか探す*/
 export const getTagStyle = (tagName: string) => {
     const matched = TAG_CATEGORIES.find((category) =>                   
         category.keywords.some((keyword) =>tagName.includes(keyword))
