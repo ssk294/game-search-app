@@ -1,4 +1,5 @@
-import '../App.css';
+import '../App.css'
+import { getTagStyle }from '../components/TagColors'
 interface ResultSectionProps {
     onStart: () => void;
     resultGame: any[]; 
