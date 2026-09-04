@@ -261,7 +261,7 @@ export default function App() {
 
       {(screenStage === 0 || screenStage === 7) && !showFavorites && (
         <button
-          className="favorites-fab"
+          className="favorites-btn"
           onClick={() => setShowFavorites(true)}
         >
           ⭐
