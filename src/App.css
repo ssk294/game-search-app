@@ -434,9 +434,31 @@
 
 /*FavoritePagesエリア*/
 
+.Back-btn-to-WelcomeView{
+  font-family: 'BIZ+UDGothic',sans-serif;
+  font-weight: bold;
+  font-size: clamp(14px, 2.5vw,16px);
+  background-color: transparent;
+  border: 4px solid ;
+  border-color: #9c9c9c;
+  margin-top: 12px;
+  padding: clamp(10px, 2vw, 12px) clamp(20px, 4vw, 28px);
+  border-radius: clamp(16px, 3vw, 24px);
+  cursor: pointer;
+  transition: ease 0.3s;
+  width: max-content;
+  min-width: clamp(120px, 30vw, 160px);
+}
+
+.Back-btn-to-WelcomeView:hover{
+  transform: scale(1.15);
+}
+
 .FavoritePages-header{
   display: flex;
-  font-size: 32px;
+  justify-content: center;
+  font-size: 24px;
+  padding: 15px;
 }
 
 .Favorite-genre-section{

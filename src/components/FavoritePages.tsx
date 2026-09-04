@@ -19,11 +19,11 @@ interface FavoritePageProps {
 export default function FavoritePages({ favorites, onRemove, onBack }: FavoritePageProps) {
     return (
         <div>
-            <button className="Back-btn-ver2" onClick={onBack}>
+            <button className="Back-btn-to-WelcomeView" onClick={onBack}>
                 診断ページに戻る
             </button>
 
-            <h1 className="Question-text">保存したゲーム一覧</h1>
+            <h1 className="FavoritePages-header">保存したゲーム一覧</h1>
 
             {GenreData.map((genre) => {
                 const gamesInGenre = favorites.filter((game) => 
