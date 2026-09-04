@@ -166,6 +166,7 @@ export default function App() {
       console.log("1件目のtagsの中身:", apiData.results?.[0]?.tags);
       console.log("APIが返した30件のタイトル一覧:", apiData.results.map((g: any) => g.name));
       console.log("30件のそれぞれのタグ:", apiData.results.map((g: any) => ({ name: g.name, tags: g.tags?.map((t: any) =>t.slug)}))) ;
+      console.log("各ゲームのジャンル一覧:", apiData.results.map((g: any) => ({ name: g.name, genres: g.genres?.map((genre: any) => genre.name) })));
 
       let filteredResults = apiData.results;
 
