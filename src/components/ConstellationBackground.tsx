@@ -113,7 +113,8 @@ export default function ConstellationBackground() {
               cx={point.x}
               cy={point.y}
               r={isHighlighted ? 4 : 2.5}
-              fill={isHighlighted ? color : '##e8eaf5'}
+              fill={isHighlighted ? color : '#e8eaf5'}
+              opacity={0.5}
             />
           </g>
         );
