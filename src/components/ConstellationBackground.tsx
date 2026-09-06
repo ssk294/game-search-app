@@ -3,8 +3,8 @@ import { useState } from 'react';
 type Point = { x: number; y: number };
 type Line = { from: Point; to: Point };
 
-const POINT_COUNT = 36;        // 点の数
-const CONNECT_DISTANCE = 140;  // これより近い点同士だけ線で繋ぐ
+const POINT_COUNT = 40;        // 点の数
+const CONNECT_DISTANCE = 180;  // これより近い点同士だけ線で繋ぐ
 const MAX_CONNECTIONS = 2;     // 1つの点から伸ばす線の最大本数
 const WIDTH = 340;
 const HEIGHT = 220;
@@ -60,7 +60,7 @@ const pickHighlights = (points: Point[], count: number): Point[] => {
 export default function ConstellationBackground() {
   const [points] = useState(generatePoints);
   const [lines] = useState(() => generateLines(points));
-  const [highlights] = useState(() => pickHighlights(points, 2));
+  const [highlights] = useState(() => pickHighlights(points, 4));
 
   return (
     <svg
@@ -68,6 +68,17 @@ export default function ConstellationBackground() {
       viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
       preserveAspectRatio="xMidYMid slice"
     >
+
+      <defs>
+        <filter id="line-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="1.5" result="blur"/>
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+
       {lines.map((line, i) => (
         <line
           key={`line-${i}`}
@@ -75,8 +86,10 @@ export default function ConstellationBackground() {
           y1={line.from.y}
           x2={line.to.x}
           y2={line.to.y}
-          stroke="#d8d2c8"
-          strokeWidth={1.2}
+          stroke="#5a6b9e"
+          strokeWidth={1}
+          opacity={0.8}
+          filter="url(#line-glow)" 
         />
       ))}
 
@@ -87,13 +100,20 @@ export default function ConstellationBackground() {
         return (
           <g key={`point-${i}`}>
             {isHighlighted && (
-              <circle cx={point.x} cy={point.y} r={11} fill={color} opacity={0.25} />
+              <circle 
+              cx={point.x} 
+              cy={point.y} 
+              r={10} 
+              fill={color} 
+              opacity={0.4}
+              filter="blur(4px)"
+              />
             )}
             <circle
               cx={point.x}
               cy={point.y}
-              r={isHighlighted ? 5 : 3}
-              fill={isHighlighted ? color : '#b9b2a6'}
+              r={isHighlighted ? 4 : 2.5}
+              fill={isHighlighted ? color : '##e8eaf5'}
             />
           </g>
         );
