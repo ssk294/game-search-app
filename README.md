@@ -11,7 +11,7 @@ https://game-search-app-taupe.vercel.app/
 
 | スタート画面 | ジャンル選択 | 結果画面 |
 |---|---|---|
-| ![スタート画面](./screenshots/startpage.png) | ![ジャンル選択画面](./screenshots/genre.png) | ![結果画面](./screenshots/results.png)|
+| ![スタート画面](./screenshots/startpage2.png) | ![ジャンル選択画面](./screenshots/genre2.png) | ![結果画面](./screenshots/results2.png)|
 
 ✨今できること（機能）
 ・ページの遷移機能（ボタン押下による画面の切り替え）
