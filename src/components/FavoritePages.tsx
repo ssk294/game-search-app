@@ -1,5 +1,6 @@
 import '../App.css';
 import {GenreData} from '../DataFolder/GenreData';
+import { getTagStyle }from '../DataFolder/TagColors'
 
 export interface FavoriteGame {
     title: string;
@@ -45,11 +46,19 @@ export default function FavoritePages({ favorites, onRemove, onBack }: FavoriteP
                             <p className="Favorite-card-title">{game.title}</p>
                             <img src={game.image} alt={game.title} className="Favorite-card-art" />
                             <div className="Result-tags-container" >
-                            {game.tags && game.tags.map((tag: string, tagIndex: number) =>(
-                                <span className="Favorite-tag-badge" key={tagIndex}>
+                            {game.tags && game.tags.map((tag: string, tagIndex: number) =>{
+                            const style = getTagStyle(tag);
+
+                            return(
+                                <span 
+                                className="Favorite-tag-badge" 
+                                key={tagIndex}
+                                style={{ backgroundColor: style.bg, color: style.color }}
+                                >
                                     {tag}    
                                 </span>
-                            ))}
+                            );
+                            })}
                         </div>
                             <a href={game.url} className="Favorite-URL" target="_blank" rel= "noopener noreferrer">詳細をみる！</a>
                             <button className="Favorite-remove-btn" onClick={() => onRemove(game.title)}>
