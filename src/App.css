@@ -434,12 +434,13 @@
 /*FavoritePagesエリア*/
 
 .Back-btn-to-WelcomeView{
+  color: #ffffff;
   font-family: 'BIZ+UDGothic',sans-serif;
   font-weight: bold;
   font-size: clamp(14px, 2.5vw,16px);
   background-color: transparent;
   border: 4px solid ;
-  border-color: #9c9c9c;
+  border-color: #ffffff;
   margin-top: 12px;
   padding: clamp(10px, 2vw, 12px) clamp(20px, 4vw, 28px);
   border-radius: clamp(16px, 3vw, 24px);
