@@ -177,6 +177,13 @@ export default function App() {
       }
       console.log("無料フィルター後の件数:", filteredResults.length);
 
+      filteredResults = filteredResults.filter((game: any) =>
+        genres.every((selectedGenreId: string) =>
+          game.genres?.some((g:any) => String(g.id) === selectedGenreId)
+          )
+      );
+      console.log("ジャンルAND絞り込み後の件数:", filteredResults.length);
+
       const requiredTags = tags.split(",").filter((t) => t !== "");
       console.log("必要なタグ一覧:", requiredTags);    
 
