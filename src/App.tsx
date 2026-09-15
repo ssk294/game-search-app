@@ -26,7 +26,6 @@ export default function App() {
 
     const newFavorite: FavoriteGame = {
       ...game,
-      genreIds: selectedGenres,
     };
 
   const updated = [...favorites, newFavorite];
@@ -165,7 +164,7 @@ export default function App() {
       console.log("APIが返した件数:", apiData.results?.length);
       console.log("1件目のtagsの中身:", apiData.results?.[0]?.tags);
       console.log("APIが返した30件のタイトル一覧:", apiData.results.map((g: any) => g.name));
-      console.log("１件目っジャンル(生データ):",apiData.results[0].genres);
+      console.log("１件目のジャンル(生データ):",apiData.results[0].genres);
       console.log("30件のそれぞれのタグ:", apiData.results.map((g: any) => ({ name: g.name, tags: g.tags?.map((t: any) =>t.slug)}))) ;
       console.log("各ゲームのジャンル一覧:", apiData.results.map((g: any) => ({ name: g.name, genres: g.genres?.map((genre: any) => genre.name) })));
 
@@ -202,6 +201,7 @@ export default function App() {
           desc: `評価: ${game.rating} / 発売日: ${game.released}` ,
           url: `https://rawg.io/games/${game.slug}`,/*URLも飛べるように*/
           tags: (game.tags ?? []).filter((t: any) => t.language === "eng").slice(0, 5).map((t: any) => t.name),/*ゲームのタグの上位５件を英語のフィルタリングして表示*/
+          genreIds: (game.genres ?? []).map((g:any) =>String(g.id)),
         }));
   
         setResultGame(topGames);

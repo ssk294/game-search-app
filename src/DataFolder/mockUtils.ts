@@ -46,5 +46,6 @@ export function formatForDisplay(games: any[]){
             .filter((t: any) => t.language === "eng")
             .slice(0, 5)
             .map((t: any) => t.name),
+            genreIds: (game.genres ?? []).map((g: any) => String(g.id)),
     }));
 }
