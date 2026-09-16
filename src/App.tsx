@@ -59,7 +59,7 @@ export default function App() {
 
         const today = new Date();
         const pastDate = new Date();
-        pastDate.setDate(today.getDate() - 365);
+        pastDate.setDate(today.getDate() - 730);/*過去の期間は少し長めでテスト*/
         const futureDate = new Date();
         futureDate.setDate(today.getDate() + 365);
         dates = `${formatDate(pastDate)},${formatDate(futureDate)}`; /*47行の日付変換がここにきて回収*/
