@@ -156,10 +156,23 @@ export default function App() {
       
       const apiTagsParam = mustBeFree ? "free-to-play": tags;
 
-      const apiUrl = `/api/games?genres=${genreString}&tags=${apiTagsParam}&ordering=${ordering}&dates=${dates}&platforms=${platformId}`;
-      console.log("実際に送っているURL:", apiUrl);
-      const response = await fetch(apiUrl);
-      const apiData = await response.json();
+      const apiUrlPage1 = `/api/games?genres=${genreString}&tags=${apiTagsParam}&ordering=${ordering}&dates=${dates}&platforms=${platformId}&page=1`;
+      const apiUrlPage2 = `/api/games?genres=${genreString}&tags=${apiTagsParam}&ordering=${ordering}&dates=${dates}&platforms=${platformId}&page=2`;
+      console.log("実際に送っているURL:", apiUrlPage1, apiUrlPage2);
+
+      const [response1, response2] = await Promise.all([
+        fetch(apiUrlPage1),
+        fetch(apiUrlPage2),
+      ]);
+
+      const apiData1 = await response1.json();
+      const apiData2 = await response2.json();
+
+      const apiData ={
+        ...apiData1,
+        results:[...(apiData1.results ?? []), ...(apiData2.results ?? []),]
+      };
+
       console.log("APIから届いたデータ:", apiData);
       console.log("APIが返した件数:", apiData.results?.length);
       console.log("1件目のtagsの中身:", apiData.results?.[0]?.tags);
