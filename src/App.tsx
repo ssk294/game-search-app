@@ -173,6 +173,10 @@ export default function App() {
         results:[...(apiData1.results ?? []), ...(apiData2.results ?? []),]
       };
 
+      const idList = apiData.results.map((g: any) => g.id);
+      const uniqueIds = new Set(idList);
+      console.log("結合後の件数:", idList.length, "ユニークな件数:", uniqueIds.size);
+
       console.log("APIから届いたデータ:", apiData);
       console.log("APIが返した件数:", apiData.results?.length);
       console.log("1件目のtagsの中身:", apiData.results?.[0]?.tags);
