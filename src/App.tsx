@@ -219,7 +219,7 @@ export default function App() {
       const shuffledCandidates = [...topCandidates].sort(() => Math.random() - 0.5);
 
       if (sortedResults.length > 0){
-       const topGames = shuffledCandidates.slice(0, 15).map((game: any) => ({
+       const topGames = shuffledCandidates.slice(0, 30).map((game: any) => ({
           title: game.name,
           image: game.background_image,
           desc: `評価: ${game.rating} / 発売日: ${game.released}` ,
