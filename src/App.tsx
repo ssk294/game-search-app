@@ -195,12 +195,21 @@ export default function App() {
 
       const scoredResults = filteredResults.map((game: any) => {
         let matchCount = 0;
+        
+        matchCount += requiredTags.filter((requiredTag) =>
+          game.tags.some((gameTag: any) => gameTag.slug === requiredTag)
+        ).length;
 
-        return{...game,matchCount };
+        const genreMatchCount = genres.filter((selectedGenreId: string) =>
+          game.genres?.some((g: any) => String(g.id) === selectedGenreId)
+        ).length;
+        matchCount += genreMatchCount * 3;
+
+        return { ...game,matchCount, genreMatchCount };
       });
       
       const sortedResults = scoredResults.sort((a: any, b: any) => b.matchCount - a.matchCount);
-      console.log("並び替え後（上位5件の一致数）:", sortedResults.slice(0, 10).map((g: any) => g.matchCount));
+      console.log("並び替え後（上位10件の一致数）:", sortedResults.slice(0, 10).map((g: any) => ({ name: g.name, genreMatchCount: g.genreMatchCount})));
 
       const topCandidates = sortedResults.slice(0, 25);
       const shuffledCandidates = [...topCandidates].sort(() => Math.random() - 0.5);
