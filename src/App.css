@@ -286,7 +286,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 20px;
+  gap: 25px;
 }
 
 .Result-title-container{
@@ -303,7 +303,6 @@
 
 .Save-btn{
   background-color: transparent;
-  border: none;
   border-radius: 50%;
   width: 32px;
   height: 32px;
@@ -433,7 +432,7 @@
 
 /*FavoritePagesエリア*/
 
-.Back-btn-to-WelcomeView{
+.Back-btn-to-WelcomeView,.Back-btn-to-page{
   color: #ffffff;
   font-family: 'BIZ+UDGothic',sans-serif;
   font-weight: bold;
@@ -448,6 +447,10 @@
   transition: ease 0.3s;
   width: max-content;
   min-width: clamp(120px, 30vw, 160px);
+}
+
+.Back-btn-to-WelcomeView{
+  margin-bottom: 25px;
 }
 
 .Back-btn-to-WelcomeView:hover{
