@@ -20,7 +20,7 @@ interface FavoritePageProps {
 export default function FavoritePages({ favorites, onRemove, onBack }: FavoritePageProps) {
     return (
         <div>
-            <button className="Back-btn-to-WelcomeView" onClick={onBack}>
+            <button className="Back-btn-to-page" onClick={onBack}>
                 診断ページに戻る
             </button>
 
