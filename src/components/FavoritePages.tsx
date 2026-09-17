@@ -60,7 +60,7 @@ export default function FavoritePages({ favorites, onRemove, onBack }: FavoriteP
                             );
                             })}
                         </div>
-                            <a href={game.url} className="Favorite-URL" target="_blank" rel= "noopener noreferrer">詳細をみる！</a>
+                            <a href={game.url} className="Result-Url" target="_blank" rel= "noopener noreferrer">詳細をみる！</a>
                             <button className="Favorite-remove-btn" onClick={() => onRemove(game.title)}>
                             お気に入りから外す
                             </button>
