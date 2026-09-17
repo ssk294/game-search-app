@@ -338,7 +338,7 @@
   border: 2px solid rgb(10, 10, 10, 0.5);
   backdrop-filter: blur(10px);
   border-radius: 15px;
-  max-width: 400px;
+  width: clamp(240px, 40vw, 320px); 
   padding: 10px;
 }
 
@@ -372,11 +372,9 @@
 }
 
 .Result-Url{
-  display: flex;
-  justify-content: center;
   font-family: 'BIZ+UDGothic',sans-serif;
   font-weight: bold;
-  font-size: 4.5cqw;
+  font-size: 0.8rem;
   border: 4px solid transparent;
   background:
     linear-gradient(#ffffff, #ffffff), 
@@ -384,13 +382,12 @@
 
   background-origin: border-box;
   background-clip: padding-box, border-box;
-  padding: 3cqw 4cqw;
-  border-radius: 6cqw;
+  padding: 6px 12px;
+  border-radius: 15px;
   cursor: pointer;
   transition: ease 0.3s;
   width: max-content;
-  min-width: clamp(120px, 30vw, 160px);
-  margin-top: auto;
+  margin-top:8px;
 }
 
 /*progress-barエリア*/
