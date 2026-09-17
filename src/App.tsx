@@ -311,8 +311,9 @@ export default function App() {
           onBack={() => setShowFavorites(false)}
         />
       ) : (
+
         <>
-          {screenStage === 0&&(
+      {screenStage === 0&&(
             <WelcomeView onStart={nextStage} />
           )} 
 
@@ -377,6 +378,7 @@ export default function App() {
           resultGame={resultGame}
           onSave={handleSaveFavorite}
           favorites={favorites}
+          onBack={resetApp}
           />  
       )}
         </>

@@ -5,16 +5,19 @@ interface ResultSectionProps {
     resultGame: any[]; 
     onSave: (game:any) =>void;
     favorites: { title: string }[];
+    onBack: () => void;
 }
 
 
-    export default function ResultSection({ onStart, resultGame, onSave, favorites }: ResultSectionProps) {
+
+
+    export default function ResultSection({ onStart, resultGame, onSave, favorites, onBack }: ResultSectionProps) {
     return (
         <div className="Result-container">
             <h2 className="announce-text">今のあなたに合うゲームはこちら！</h2>
 
             <div className="Result-card-container">
-            {resultGame && resultGame.map((game, index) => {
+                {resultGame && resultGame.map((game, index) => {
                 const isSaved = favorites.some((f) => f.title === game.title);
 
                 return(
@@ -54,6 +57,10 @@ interface ResultSectionProps {
                 );
                 })}
             </div>
+
+            <button className="Back-btn-to-WelcomeView" onClick={onBack}>
+                最初からやり直す！
+            </button>
 
         </div>
     );
