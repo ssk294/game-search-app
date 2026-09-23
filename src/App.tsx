@@ -92,7 +92,7 @@ export default function App() {
     setScreenStage(screenStage + 1);
   };
 
-  const prevStage = () =>{
+  const prevStage = () =>{/*前のページに戻るやつ*/
     if (screenStage === 6 ){
       setSelectedGenres([]);
     }
