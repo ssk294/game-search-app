@@ -46,7 +46,7 @@ export default function App() {
   const formatDate = (d: Date) => d.toISOString().split("T")[0];/*日付を変換する関数*/
 
   /*build(省略)にはアンサー(文字列),ハードウェア(文字列)が入っていく*/
-  const buildFilterParams = (answers:string[], hardware: string) =>{/*buildFilterParamsは機械でanswersは材料を入れるという意味*/
+  const buildFilterParams = (answers:string[], hardware: string) =>{/*buildFilterParamsは機械でanswersは材料を入れるという意味,そして日本語の回答をAPIがわかる言葉に変換する関数*/
       let tags: string[] = [];/*選ばれたタグをどんどん追加していく箱*/
       let ordering = "-rating";/*初めに評価がいいものを入れておく*/
       let dates = "";
