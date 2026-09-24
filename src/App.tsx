@@ -160,7 +160,7 @@ export default function App() {
       const apiUrlPage2 = `/api/games?genres=${genreString}&tags=${apiTagsParam}&ordering=${ordering}&dates=${dates}&platforms=${platformId}&page=2`;
       console.log("実際に送っているURL:", apiUrlPage1, apiUrlPage2);
 
-      const [response1, response2] = await Promise.all([
+      const [response1, response2] = await Promise.all([/*Promise.allで両方同時に送る*/
         fetch(apiUrlPage1),
         fetch(apiUrlPage2),
       ]);
@@ -254,7 +254,7 @@ export default function App() {
       setResultGame(formatForDisplay(mockScored));
       nextStage();
       
-    }finally{
+    }finally{/*最後にかならず読み込み画面を取り除く*/
       setIsLoading(false);
     }
 
