@@ -393,18 +393,29 @@
 /*progress-barエリア*/
 .progress-bar-container{
   width: 100%;
-  height: 18px;
+  height: 8px;
   background-color: #e7e7e7;
   border: solid rgb(65, 65, 65);
   border-radius: 15px;
-  overflow: hidden;
   margin: 30px auto 0 auto;
+  overflow: visible;
 }
 
 .progress-bar-fill{
   height: 100%;
   background-color: #afa6eb;
   transition: width 0.3s ease-in-out;
+  box-shadow: 0 0 8px 2px #afa6eb;
+  animation: glow-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 8px 2px #afa6eb;
+  }
+  50% {
+    box-shadow: 0 0 16px 4px #afa6eb;  /* 中間で強く光る */
+  }
 }
 
 /*Loadingエリア*/
