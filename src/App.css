@@ -570,6 +570,9 @@
 }
 
 .favorites-btn{
+  position: fixed;
+  top: 20px;
+  left: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -580,6 +583,7 @@
   border-radius: 24px;
   cursor: pointer;
   transition: 0.3s ease;
+  z-index: 10;
 }
 
 .favorites-btn ,.Result-Url:hover{
