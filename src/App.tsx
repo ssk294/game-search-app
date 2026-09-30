@@ -17,11 +17,13 @@ export default function App() {
 
   const [showFavorites, setShowFavorites] = useState(false);
   const [favorites, setFavorites] = useState<FavoriteGame[]>(() => {
-    const saved = localStorage.getItem('favorites');
+
+  /*お気に入りのゲームは何度も見返したい要素なのでlocalstrageを採用*/
+  const saved = localStorage.getItem('favorites');
     return saved ? JSON.parse(saved) : [];
   });
   const handleSaveFavorite = (game: any) => {
-    const alreadySaved = favorites.some((f) => f.title === game.title);/*同じタイトルのゲームが保存されてないかチェック*/
+    const alreadySaved = favorites.some((f) => f.title === game.title);
     if (alreadySaved) return;
 
     const newFavorite: FavoriteGame = {
@@ -33,42 +35,42 @@ export default function App() {
   localStorage.setItem('favorites', JSON.stringify(updated));
   };
 
-  const [answers, setAnswers] = useState<string[]>([]);/*4つの質問の回答をためる箱*/
-  const [hardware, setHardware] = useState<string>('');/*選んだハードを入れる棚*/
-  const [selectedGenres, setSelectedGenres] = useState<string[]>([]);/*選らんだジャンルを入れる箱*/
+  const [answers, setAnswers] = useState<string[]>([]);
+  const [hardware, setHardware] = useState<string>('');
+  const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
 
-  const [resultGame, setResultGame] = useState<any[]>([/*最終的な画面に表示する情報を入れる箱*/
+  const [resultGame, setResultGame] = useState<any[]>([
     { title: '', image: '', desc: '' }
   ]);
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const formatDate = (d: Date) => d.toISOString().split("T")[0];/*日付を変換する関数*/
+  const formatDate = (d: Date) => d.toISOString().split("T")[0];
 
-  /*build(省略)にはアンサー(文字列),ハードウェア(文字列)が入っていく*/
-  const buildFilterParams = (answers:string[], hardware: string) =>{/*buildFilterParamsは機械でanswersは材料を入れるという意味,そして日本語の回答をAPIがわかる言葉に変換する関数*/
-      let tags: string[] = [];/*選ばれたタグをどんどん追加していく箱*/
-      let ordering = "-rating";/*初めに評価がいいものを入れておく*/
+
+  const buildFilterParams = (answers:string[], hardware: string) =>{
+      let tags: string[] = [];
+      let ordering = "-rating";
       let dates = "";
-      let mustBeFree = false;/*最初は無料じゃないと指定*/
+      let mustBeFree = false;
 
       if (answers[0] === "とにかく評価がいいもの！"){
-        ordering = "-rating";/*もし評価がいいものを押されたらorderingに評価重視を入れる*/
+        ordering = "-rating";
       } else if(answers[0] === "話題の最新作！"){
         ordering = "-added";
 
         const today = new Date();
         const pastDate = new Date();
-        pastDate.setDate(today.getDate() - 1095);/*過去の期間は少し長めでテスト*/
+        pastDate.setDate(today.getDate() - 1095);
         const futureDate = new Date();
         futureDate.setDate(today.getDate() + 365);
-        dates = `${formatDate(pastDate)},${formatDate(futureDate)}`; /*47行の日付変換がここにきて回収*/
+        dates = `${formatDate(pastDate)},${formatDate(futureDate)}`;
       }   
 
       if (answers[1] === "１人でじっくり！"){
-        tags.push("singleplayer");/*tagsに一人派を追加する。*/
+        tags.push("singleplayer");
       }else if (answers[1] === "友達や誰かとワイワイ！"){
-        tags.push("multiplayer");/*tagsにマルチ派を追加する（以後同じ）*/
+        tags.push("multiplayer");
       }
 
       if (answers[2] === "3D美麗グラフィック！"){
@@ -83,7 +85,7 @@ export default function App() {
 
       const platformId = PLATFORM_MAP[hardware] ?? "";
 
-      return { tags: tags.join(","), ordering, dates, platformId, mustBeFree};/*箱につめてデータを出荷*/
+      return { tags: tags.join(","), ordering, dates, platformId, mustBeFree};
   };
 
 
@@ -92,7 +94,7 @@ export default function App() {
     setScreenStage(screenStage + 1);
   };
 
-  const prevStage = () =>{/*前のページに戻るやつ*/
+  const prevStage = () =>{
     if (screenStage === 6 ){
       setSelectedGenres([]);
     }
@@ -138,7 +140,7 @@ export default function App() {
       return;
     }
 
-    const { tags, ordering, dates, platformId, mustBeFree } = buildFilterParams(answers, hardware);/*アンサーデータを受け取る*/
+    const { tags, ordering, dates, platformId, mustBeFree } = buildFilterParams(answers, hardware);
     console.log("answersの中身:", answers);
     const genreString = genres.join(',');
 
@@ -160,7 +162,7 @@ export default function App() {
       const apiUrlPage2 = `/api/games?genres=${genreString}&tags=${apiTagsParam}&ordering=${ordering}&dates=${dates}&platforms=${platformId}&page=2`;
       console.log("実際に送っているURL:", apiUrlPage1, apiUrlPage2);
 
-      const [response1, response2] = await Promise.all([/*Promise.allで両方同時に送る*/
+      const [response1, response2] = await Promise.all([
         fetch(apiUrlPage1),
         fetch(apiUrlPage2),
       ]);
@@ -223,7 +225,7 @@ export default function App() {
           title: game.name,
           image: game.background_image,
           desc: `評価: ${game.rating} / 発売日: ${game.released}` ,
-          url: `https://rawg.io/games/${game.slug}`,/*URLも飛べるように*/
+          url: `https://rawg.io/games/${game.slug}`,
           tags: (game.tags ?? []).filter((t: any) => t.language === "eng").slice(0, 5).map((t: any) => t.name),/*ゲームのタグの上位５件を英語のフィルタリングして表示*/
           genreIds: (game.genres ?? []).map((g:any) =>String(g.id)),
         }));
@@ -254,7 +256,7 @@ export default function App() {
       setResultGame(formatForDisplay(mockScored));
       nextStage();
       
-    }finally{/*最後にかならず読み込み画面を取り除く*/
+    }finally{
       setIsLoading(false);
     }
 
