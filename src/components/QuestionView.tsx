@@ -11,21 +11,23 @@ export default function QuestionView({ onStart ,title, ansA ,ansB, onBack } :Que
     return(
         <div className ="Question-Section">
 
-            <h1 className= "Question-text">{title}</h1>
-
             <div className ="Question-container">
+                    
+                    <h1 className= "Question-text">{title}</h1>
 
-                    <button className ="Question-btn" onClick ={() => onStart(ansA)} >
-                        {ansA}
-                    </button>
+                    <div className="Question-Answer-container">
+                        <button className ="Question-btn" onClick ={() => onStart(ansA)} >
+                            {ansA}
+                        </button>
 
-                    <button className ="Question-btn" onClick ={() => onStart(ansB)} >
-                        {ansB}
-                    </button>
+                        <button className ="Question-btn" onClick ={() => onStart(ansB)} >
+                            {ansB}
+                        </button>
+                    </div>
+
+                    <button  className="Back-btn" onClick={onBack}>前に戻る</button>
 
             </div>
-
-            <button  className="Back-btn" onClick={onBack}>前に戻る</button>
 
         </div>
     );
