@@ -9,16 +9,17 @@ export default function ThreeQuestionView({ onStart, onBack } :ThreeQuestionView
     return(
         <div className ="Question-Section">
 
-            <h1 className= "Question-text">プレイするハードは？</h1>
-
             <div className ="Question-container">
+                <h1 className= "Question-text">プレイするハードは？</h1>
+
                 <button className ="Question-btn" onClick ={() => onStart('スマホ')} >スマホ</button>
                 <button className ="Question-btn" onClick ={() => onStart('PS5')} >PS5</button>
                 <button className ="Question-btn" onClick ={() => onStart('PC')} >PC</button>
                 <button className ="Question-btn" onClick ={() => onStart('Switch')} >Switch</button>
-            </div>
 
-            <button  className="Back-btn" onClick={onBack}>前に戻る</button>
+                <button  className="Back-btn" onClick={onBack}>前に戻る</button>
+
+            </div>
 
         </div>
     );
