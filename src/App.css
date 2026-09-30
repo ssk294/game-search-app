@@ -90,30 +90,6 @@
     max-width: 800px;
   }
 
-  .start-btn{
-    font-family: 'BIZ+UDGothic',sans-serif;
-    font-weight: bold;
-    font-size: clamp(14px, 2.5vw,16px);
-    color: #000000;
-    border: 4px solid transparent;
-    background:
-      linear-gradient(#ffffff, #ffffff), 
-      linear-gradient(to right, #ff007f, #7f00ff, #00bfff, #00ffcc); 
-  
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
-    padding: clamp(10px, 2vw, 12px) clamp(20px, 4vw, 28px);
-    border-radius: clamp(16px, 3vw, 24px);
-    cursor: pointer;
-    transition: ease 0.3s;
-    width: max-content;
-    min-width: clamp(120px, 30vw, 160px);
-  }
-
-  .start-btn:hover{
-    transform: scale(1.15);
-  }
-
   /*QuestionViewエリア*/
   .Question-Section{
     display: flex;
@@ -164,7 +140,7 @@
   }
 
   .Question-btn,
-  .Back-btn{
+  .Back-btn,.start-btn{
     font-family: 'BIZ+UDGothic',sans-serif;
     font-weight: bold;
     font-size: clamp(14px, 2.5vw,16px);
@@ -185,6 +161,11 @@
     background-color: #192d66;
   }
 
+  .start-btn{
+    color: #f8f6f2;
+    background-color: #192d66;
+  }
+
   .Back-btn{
    margin: 50px;
   }
@@ -199,6 +180,11 @@
     border: 2px solid rgb(191, 245, 255);
   }
 
+  .start-btn:hover{
+    transform: scale(1.12);
+    border: 2px solid rgb(191, 245, 255);
+  }
+
   /*GenreSelectionエリア*/
   .GenreCard-container{
     display: flex;
@@ -206,6 +192,10 @@
     align-items: center;
     text-align: center;
     flex-wrap: wrap;
+    background-color: #0a132b;
+    border: 1px solid rgba(238, 241, 252, 0.14);
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
     gap: 20px;
   }
 
