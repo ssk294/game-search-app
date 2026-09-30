@@ -25,7 +25,6 @@ export default function GenreSelection({ onStart, onBack } :GenreSelectionProps)
                 <h1 className= "Question-text">探してるジャンルは？（複数選択可）</h1>
 
                 <div className= "GenreCard-container">
-                    
                     {GenreData.map((genre) => {
                     const isSelected = selectedGenres.includes(genre.id);
 
@@ -51,6 +50,7 @@ export default function GenreSelection({ onStart, onBack } :GenreSelectionProps)
                             </button>
                             );
                             })}
+                           
                             </div>
 
                             <div className ="btn-container">
