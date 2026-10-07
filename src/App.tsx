@@ -273,6 +273,13 @@ export default function App() {
   return (
     <div>
 
+      <footer className="rawg-credit">
+        Data from{' '}
+        <a href="https://rawg.io" target="_blank" rel="noopener noreferrer">
+          RAWG
+        </a>
+      </footer>
+
       <ConstellationBackground/>
 
       {isLoading &&(

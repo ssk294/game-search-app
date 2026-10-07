@@ -654,3 +654,21 @@
     inset 0 -1px 1px rgba(0, 0, 0, 0.2),
     0 10px 24px rgba(0, 0, 0, 0.35);
 }
+
+.rawg-credit {
+  position: fixed;
+  bottom: 8px;
+  right: 12px;
+  font-size: 11px;
+  color: var(--ink-dim);
+  z-index: 10;
+}
+
+.rawg-credit a {
+  color: var(--ink-dim);
+  text-decoration: underline;
+}
+
+.rawg-credit a:hover {
+  color: var(--cyan);
+}
