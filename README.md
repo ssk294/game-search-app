@@ -20,11 +20,11 @@ https://game-search-app-taupe.vercel.app/
 | ![スタート画面](./screenshots/startpage3.png) | ![ジャンル選択画面](./screenshots/genre3.png) | ![結果画面](./screenshots/results2.png)|
 
 ✨今できること（ベータ版）
-・ページの遷移機能（ボタン押下による画面の切り替え）
-・ゲームの診断、ジャンル選択機能
-・結果画面の表示
-・ゲームのお気に入り登録機能
-・エラー時のモックデータ表示
+-・ページの遷移機能（ボタン押下による画面の切り替え）
+-・ゲームの診断、ジャンル選択機能
+-・結果画面の表示
+-・ゲームのお気に入り登録機能
+-・エラー時のモックデータ表示
 
 🛠️使っている技術
 言語: TypeScript, JavaScript, CSS, HTML
