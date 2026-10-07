@@ -140,7 +140,7 @@
   }
 
   .Question-btn,
-  .Back-btn,.start-btn{
+  .Back-btn,.start-btn,.Back-btn-to-page{
     font-family: 'BIZ+UDGothic',sans-serif;
     font-weight: bold;
     font-size: clamp(14px, 2.5vw,16px);
@@ -161,9 +161,17 @@
     background-color: #192d66;
   }
 
-  .start-btn{
+  .start-btn,.Back-btn-to-page{
     color: #f8f6f2;
     background-color: #192d66;
+  }
+
+  .Back-btn-to-page{
+    margin-top: 8px;
+  }
+
+  .Back-btn-to-page:hover{
+    transform: scale(1.12);
   }
 
   .Question-btn:hover{
@@ -490,7 +498,7 @@
 
 /*FavoritePagesエリア*/
 
-.Back-btn-to-WelcomeView,.Back-btn-to-page{
+.Back-btn-to-WelcomeView{
   color: #ffffff;
   font-family: 'BIZ+UDGothic',sans-serif;
   font-weight: bold;
