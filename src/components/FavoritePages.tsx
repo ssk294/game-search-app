@@ -3,6 +3,7 @@ import {GenreData} from '../DataFolder/GenreData';
 import { getTagStyle }from '../DataFolder/TagColors'
 
 export interface FavoriteGame {
+    id?: number;  
     title: string;
     image: string;
     desc: string;
