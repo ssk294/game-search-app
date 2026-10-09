@@ -177,15 +177,6 @@ export default function App() {
 
       const idList = apiData.results.map((g: any) => g.id);
       const uniqueIds = new Set(idList);
-      console.log("結合後の件数:", idList.length, "ユニークな件数:", uniqueIds.size);
-
-      console.log("APIから届いたデータ:", apiData);
-      console.log("APIが返した件数:", apiData.results?.length);
-      console.log("1件目のtagsの中身:", apiData.results?.[0]?.tags);
-      console.log("APIが返した30件のタイトル一覧:", apiData.results.map((g: any) => g.name));
-      console.log("１件目のジャンル(生データ):",apiData.results[0].genres);
-      console.log("30件のそれぞれのタグ:", apiData.results.map((g: any) => ({ name: g.name, tags: g.tags?.map((t: any) =>t.slug)}))) ;
-      console.log("各ゲームのジャンル一覧:", apiData.results.map((g: any) => ({ name: g.name, genres: g.genres?.map((genre: any) => genre.name) })));
 
       let filteredResults = apiData.results;
 
@@ -194,10 +185,8 @@ export default function App() {
           game.tags?.some((t: any) => t.slug ==="free-to-play")
           );
       }
-      console.log("無料フィルター後の件数:", filteredResults.length);
 
-      const requiredTags = tags.split(",").filter((t) => t !== "");
-      console.log("必要なタグ一覧:", requiredTags);    
+      const requiredTags = tags.split(",").filter((t) => t !== ""); 
 
       const scoredResults = filteredResults.map((game: any) => {
         let matchCount = 0;
@@ -215,8 +204,6 @@ export default function App() {
       });
       
       const sortedResults = scoredResults.sort((a: any, b: any) => b.matchCount - a.matchCount);
-      console.log("並び替え後（上位10件の一致数）:", sortedResults.slice(0, 10).map((g: any) => ({ name: g.name, genreMatchCount: g.genreMatchCount})));
-
       const topCandidates = sortedResults.slice(0, 25);
       const shuffledCandidates = [...topCandidates].sort(() => Math.random() - 0.5);
 
