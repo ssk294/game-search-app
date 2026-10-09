@@ -1,5 +1,6 @@
 import '../App.css'
 import { getTagStyle }from '../DataFolder/TagColors'
+import AiSummary from './AiSummary'
 interface ResultSectionProps {
     onStart: () => void;
     resultGame: any[]; 
@@ -51,7 +52,7 @@ interface ResultSectionProps {
                             );
                         })}
                         </div>
-
+                        <AiSummary gameId={game.id}/>
                         <a href={game.url} className="Result-Url" target="_blank" rel= "noopener noreferrer">詳細をみる！</a>
                     </div>
                 );
