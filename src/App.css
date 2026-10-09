@@ -689,9 +689,10 @@
   border: 1px solid rgba(128, 128, 128, 0.8);
   border-radius: 15px;
   padding: 6px 12px;
-  margin: 4px;
+  margin: 8px;
   cursor: pointer;
   transition: ease 0.3s;
+}
 
 .AiSummary-btn:hover:not(:disabled){
   border-color: rgb(191, 245, 255);
