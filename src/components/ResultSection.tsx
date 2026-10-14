@@ -1,6 +1,8 @@
 import '../App.css'
 import { getTagStyle }from '../DataFolder/TagColors'
 import AiSummary from './AiSummary'
+import { getTagJa }from '../DataFolder/TagTranslation'
+
 interface ResultSectionProps {
     onStart: () => void;
     resultGame: any[]; 
@@ -40,6 +42,7 @@ interface ResultSectionProps {
 
                         <div className="Result-tags-container" >
                             {game.tags && game.tags.map((tag: string, tagIndex: number) =>{
+                            const tagJa = getTagJa(tag);
                             const style = getTagStyle(tag);
                             
                             return(
@@ -47,7 +50,7 @@ interface ResultSectionProps {
                                 key={tagIndex}
                                 style={{ backgroundColor: style.bg, color: style.color }}
                                 >
-                                    {tag}    
+                                    {getTagJa(tag)}    
                                 </span>
                             );
                         })}
