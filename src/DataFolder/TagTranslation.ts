@@ -21,9 +21,6 @@ const tagJa: Record<string, string> = {
     'Female Protagonist': '女性主人公'
 };
 
-export const getTagJaStyle = (tagName: string) => {
-    const matched = tagJa.find((category) =>                   
-        category.keywords.some((keyword) =>tagName.includes(keyword))
-    );
-    return matched ?? {tag};
+export const getTagJa = (tagName: string) => {
+    return tagJa[tagName] || tagName
 };
