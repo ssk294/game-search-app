@@ -1,6 +1,7 @@
 import '../App.css';
 import {GenreData} from '../DataFolder/GenreData';
 import { getTagStyle }from '../DataFolder/TagColors'
+import { getTagString }from '../DataFolder/TagTranslation'
 
 export interface FavoriteGame {
     id?: number;  
@@ -48,15 +49,13 @@ export default function FavoritePages({ favorites, onRemove, onBack }: FavoriteP
                             <img src={game.image} alt={game.title} className="Favorite-card-art" />
                             <div className="Result-tags-container" >
                             {game.tags && game.tags.map((tag: string, tagIndex: number) =>{
+                            const tagJa = getTagJa(tag);
                             const style = getTagStyle(tag);
 
                             return(
                                 <span 
-                                className="Favorite-tag-badge" 
-                                key={tagIndex}
-                                style={{ backgroundColor: style.bg, color: style.color }}
-                                >
-                                    {tag}    
+                                className="Favorite-tag-badge"  key={tagIndex}  style={{ backgroundColor: style.bg, color: style.color }}>
+                                    {getTagString(tag)}    
                                 </span>
                             );
                             })}
