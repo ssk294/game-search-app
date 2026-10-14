@@ -141,7 +141,6 @@ export default function App() {
     }
 
     const { tags, ordering, dates, platformId, mustBeFree } = buildFilterParams(answers, hardware);
-    console.log("answersの中身:", answers);
     const genreString = genres.join(',');
 
     setIsLoading(true);
@@ -204,10 +203,13 @@ export default function App() {
       });
       
       const sortedResults = scoredResults.sort((a: any, b: any) => b.matchCount - a.matchCount);
-      const topCandidates = sortedResults.slice(0, 25);
+      /* ここに追加フィルタ予定*/
+      const ratedGames = sortedResults.filter((game: any) => game.rating > 0)
+
+      const topCandidates = ratedGames.slice(0, 25);
       const shuffledCandidates = [...topCandidates].sort(() => Math.random() - 0.5);
 
-      if (sortedResults.length > 0){
+      if (ratedGames.length > 0){
        const topGames = shuffledCandidates.slice(0, 30).map((game: any) => ({
           id: game.id,
           title: game.name,
