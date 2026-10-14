@@ -1,7 +1,7 @@
 import '../App.css';
 import {GenreData} from '../DataFolder/GenreData';
 import { getTagStyle }from '../DataFolder/TagColors'
-import { getTagString }from '../DataFolder/TagTranslation'
+import { getTagJa }from '../DataFolder/TagTranslation'
 
 export interface FavoriteGame {
     id?: number;  
@@ -55,7 +55,7 @@ export default function FavoritePages({ favorites, onRemove, onBack }: FavoriteP
                             return(
                                 <span 
                                 className="Favorite-tag-badge"  key={tagIndex}  style={{ backgroundColor: style.bg, color: style.color }}>
-                                    {getTagString(tag)}    
+                                    {getTagJa(tag)}    
                                 </span>
                             );
                             })}
