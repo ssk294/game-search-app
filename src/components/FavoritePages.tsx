@@ -1,7 +1,8 @@
 import '../App.css';
 import {GenreData} from '../DataFolder/GenreData';
-import { getTagStyle }from '../DataFolder/TagColors'
-import { getTagJa }from '../DataFolder/TagTranslation'
+import { getTagStyle }from '../DataFolder/TagColors';
+import { getTagJa }from '../DataFolder/TagTranslation';
+import AiSummary from './AiSummary';
 
 export interface FavoriteGame {
     id?: number;  
@@ -55,11 +56,12 @@ export default function FavoritePages({ favorites, onRemove, onBack }: FavoriteP
                             return(
                                 <span 
                                 className="Favorite-tag-badge"  key={tagIndex}  style={{ backgroundColor: style.bg, color: style.color }}>
-                                    {getTagJa(tag)}    
+                                    {tagJa}    
                                 </span>
                             );
                             })}
                         </div>
+                            <AiSummary gameId={game.id}/>
                             <a href={game.url} className="Result-Url" target="_blank" rel= "noopener noreferrer">詳細をみる！</a>
                             <button className="Favorite-remove-btn" onClick={() => onRemove(game.title)}>
                             お気に入りから外す
